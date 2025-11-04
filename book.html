@@ -1,0 +1,618 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>ArtCosmos – Book</title>
+  <link rel="stylesheet" href="assets/css/style.css"/>
+  <style>
+    /* ===== Layout de ficha ===== */
+    .book-wrap{
+      max-width:1280px;
+      margin:0 auto;
+      padding:24px 16px;
+      display:grid;
+      grid-template-columns:0.7fr 1.3fr; /* imagen | texto (más ancho) */
+      gap:32px;
+    }
+    .book-left{position:relative}
+    .book-cover {
+      width: 95%;
+      border-radius: 14px;
+      display: block;
+      margin-left: 12px; /* desplaza la imagen hacia la derecha */
+    }
+
+    /* Miniaturas + flechas */
+    .thumbs-wrap{position:relative; display:flex; align-items:center; gap:10px}
+    .thumbs{
+      flex:1 1 auto; display:flex; gap:10px; overflow:auto; scroll-behavior:smooth; padding:14px 0;
+      scrollbar-width: none; /* Firefox */
+    }
+    .thumbs::-webkit-scrollbar{display:none;} /* Chrome/Edge/Safari */
+    .thumbs img{
+      width:64px;height:64px;object-fit:cover;border-radius:10px;
+      opacity:.9;cursor:pointer;transition:transform .2s, opacity .2s
+    }
+    .thumbs img.active{outline:2px solid #222;opacity:1;transform:translateY(-2px)}
+    .t-nav {
+      appearance: none;
+      border: none;
+      background: transparent; /* sin fondo */
+      cursor: pointer;
+      font-size: 40px; /* más grande */
+      color: #3a2b16; /* color marrón oscuro como en la imagen 1 */
+      line-height: 1;
+      padding: 0;
+    }
+    .t-nav:hover { color: #000; }
+
+    /* Texto y botones */
+    .book-right h1{font-size:32px;margin:0 0 6px}
+    .book-price{font-size:22px;font-weight:700;margin:0 0 12px}
+    .buy-row{display:flex;flex-wrap:wrap;gap:12px;margin:16px 0 22px}
+    .buy-btn{appearance:none;border:0;border-radius:999px;padding:10px 16px;font-weight:700;cursor:pointer;background:#f3b7c6}
+
+    /* Cuerpo del texto */
+    .book-right p{margin:0 0 12px}
+    #bookIntro p{
+      margin-bottom:18px;
+      line-height:1.85;
+      font-size:16.5px;
+      font-style:normal;
+      hyphens:auto;
+      word-break:normal;
+      text-wrap:pretty;
+    }
+    /* Destacar el último párrafo */
+    #bookIntro p:last-child{
+      padding:12px 14px;
+      border-left:4px solid #f3b7c6;
+      border-radius:8px;
+      background:rgba(243,183,198,.12);
+    }
+
+    /* Lista de características */
+    .features{margin:18px 0 0;padding-left:20px}
+    .features li{margin:8px 0;line-height:1.65;font-size:16px}
+
+    /* ===== EXTRA: imágenes grandes debajo ===== */
+    .book-extra {
+      max-width:1280px;
+      margin:34px auto 46px;
+      padding:0 16px;
+    }
+    .book-extra img{
+      width:100%;
+      height:auto;
+      display:block;
+      border-radius:16px;
+      margin-bottom:28px;
+    }
+
+    /* Responsive */
+    @media (max-width:900px){
+      .book-wrap{grid-template-columns:1fr;gap:20px}
+    }
+
+    /* ===== Breadcrumb ===== */
+    .breadcrumb{
+      font-size:18px;
+      line-height:1.4;
+      color:#000000;
+    }
+    .breadcrumb a{
+      color:#000000;
+      text-decoration:none;
+      font-weight:600;
+    }
+    .breadcrumb a:hover{ text-decoration:underline; }
+    .breadcrumb .sep{ margin:0 8px; color:#999; }
+    .breadcrumb--in{
+      grid-column:1 / -1;
+      justify-self:start;
+      margin:0 0 14px 0;
+      padding:0;
+    }
+    @media (min-width:900px){
+      .breadcrumb{ font-size:20px; }
+    }
+
+    /* ===== Estilo CocoWyo-like para carruseles de la ficha ===== */
+    .ac-like { background: #fff; padding-top: 8px; padding-bottom: 34px; }
+    .ac-like-title{
+      text-align:center;
+      font-size: clamp(22px, 2.4vw, 32px);
+      letter-spacing: .12em;
+      font-weight: 900;
+      margin: 8px auto 14px;
+      color: #000000;
+      text-transform: uppercase;
+    }
+    #related .ac-covers__inner, #recent .ac-covers__inner{ padding: 0 64px; }
+    #related .ac-track, #recent .ac-track{
+      display:grid;
+      grid-auto-flow: column;
+      grid-auto-columns: clamp(240px, 26vw, 320px);
+      gap: 28px;
+      overflow-x:auto;
+      scroll-snap-type:x mandatory;
+      scrollbar-width:none;
+      -ms-overflow-style:none;
+      padding: 6px 12px;
+    }
+    #related .ac-track::-webkit-scrollbar, #recent .ac-track::-webkit-scrollbar{ display:none; }
+
+    /* Carta tipo CocoWyo */
+    .ac-card{
+      scroll-snap-align:start;
+      text-decoration:none;
+      color:inherit;
+      display:grid;
+      grid-template-rows:auto auto auto;
+      align-items:start;
+      text-align:center;
+      transition:transform .15s ease;
+    }
+    .ac-card:hover{ transform: translateY(-3px); }
+
+    /* Fondo ondulado pastel */
+    .ac-scallop{
+      position: relative;
+      border-radius: 20px;
+      padding: 18px;
+      background:
+        radial-gradient(circle at 12px 12px, rgba(0,0,0,0) 12px, rgba(0,0,0,0) 13px, rgba(0,0,0,0)) 0 0/48px 48px,
+        linear-gradient(#f6e9ff, #fde9f1);
+      box-shadow: 0 12px 30px rgba(0,0,0,.08);
+    }
+    .ac-cover{
+      background:#fff;
+      border-radius: 14px;
+      padding: 10px;
+      box-shadow: 0 10px 22px rgba(0,0,0,.10);
+    }
+    .ac-cover img{
+      display:block;
+      width:100%;
+      height:auto;
+      aspect-ratio: 1 / 1;
+      object-fit: cover;
+      border-radius: 10px;
+    }
+    .ac-heart{
+      position:absolute;
+      right: 14px; bottom: 14px;
+      width: 36px; height: 36px;
+      border-radius: 50%;
+      background: #fff;
+      display:grid; place-items:center;
+      box-shadow: 0 6px 16px rgba(0,0,0,.15);
+      font-size: 18px;
+      color: #e06a8b;
+    }
+    .ac-title{
+      margin: 12px 0 6px;
+      font-size: clamp(15px, 1.6vw, 18px);
+      font-weight: 700;
+      line-height: 1.25;
+    }
+    .ac-price{
+      font-size: clamp(14px, 1.5vw, 16px);
+      color: #333;
+      font-weight: 800;
+    }
+
+    /* Flechas */
+    .ac-arrow{
+      position:absolute; top:50%; transform:translateY(-50%);
+      width:48px; height:48px; border:none; border-radius:50%;
+      background:#fff; color:#111; box-shadow:0 10px 26px rgba(0,0,0,.18);
+      display:grid; place-items:center; cursor:pointer; z-index:2;
+    }
+    .ac-arrow[disabled]{ opacity:.4; cursor:not-allowed; }
+    .ac-arrow--left{ left:6px; }
+    .ac-arrow--right{ right:6px; }
+    .ac-fade{ position:absolute; inset:auto 0 0 0; top:0; pointer-events:none; height:100%; }
+    .ac-fade--left{ left:0; width:60px; background: linear-gradient(90deg, #fff 35%, rgba(255,255,255,0)); }
+    .ac-fade--right{ right:0; width:60px; background: linear-gradient(270deg, #fff 35%, rgba(255,255,255,0)); }
+
+    @media (max-width: 700px){
+      #related .ac-covers__inner, #recent .ac-covers__inner{ padding: 0 54px; }
+      #related .ac-track, #recent .ac-track{ grid-auto-columns: clamp(220px, 72vw, 280px); gap: 22px; }
+    }
+
+    /* ========= AÑADIDO MINIMO: overlay fijo en portada ========= */
+    /* wrapper que ancla el corazón y replica el ancho/margen de la imagen */
+    #bookPage .cover-wrap{
+      position: relative;
+      display: inline-block;
+      width: 95%;
+      margin-left: 12px;
+      border-radius: 14px;
+    }
+    /* la imagen llena el wrapper, sin márgenes propios */
+    #bookPage .cover-wrap .book-cover{
+      display:block;
+      width:100% !important;
+      margin:0 !important;
+      border-radius:14px;
+    }
+    /* corazón superpuesto */
+    #bookPage .cover-wrap .book-favorite-btn{
+      position:absolute;
+      right:12px;
+      bottom:12px;
+      width:36px;
+      height:36px;
+      font-size:20px;
+      background:#fff;
+      border-radius:50%;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      box-shadow:0 2px 6px rgba(0,0,0,.2);
+      cursor:pointer;
+      z-index:2;
+      -webkit-text-stroke:1px black;
+      color:#fff;
+    }
+    #bookPage .cover-wrap .book-favorite-btn::before{ content:"❤"; }
+    #bookPage .cover-wrap .book-favorite-btn.active{ color:red; -webkit-text-stroke:0; }
+  </style>
+</head>
+<body>
+  <!-- Header -->
+  <div id="header"></div>
+
+  <main class="book-wrap" id="bookPage" hidden>
+
+    <!-- Breadcrumb (se rellena por JS) -->
+    <nav id="breadcrumb" class="breadcrumb breadcrumb--in" aria-label="Breadcrumb" hidden>
+      <a href="index.html">Home</a>
+      <span class="sep">›</span>
+      <a href="collection.html">Collection</a>
+      <span class="sep">›</span>
+      <span id="crumbCurrent" class="current">Loading…</span>
+    </nav>
+
+    <section class="book-left">
+      <img id="bookMain" class="book-cover" src="" alt="">
+      <!-- miniaturas con flechas -->
+      <div class="thumbs-wrap">
+        <button class="t-nav t-prev" aria-label="Previous">‹</button>
+        <div class="thumbs" id="bookThumbs"></div>
+        <button class="t-nav t-next" aria-label="Next">›</button>
+      </div>
+    </section>
+
+    <section class="book-right">
+      <h1 id="bookTitle">Title</h1>
+      <p class="book-price" id="bookPrice">$0.00</p>
+
+      <!-- === BUY MODULE: idioma -> store === -->
+      <div id="buyModule" class="buy-module">
+        <div class="lang-chooser">
+          <button class="lang-btn" data-lang="en"> BUY NOW — English</button>
+          <button class="lang-btn" data-lang="es"> COMPRAR — Español</button>
+        </div>
+
+        <div class="stores" id="stores" hidden>
+          <p class="stores-title"> Choose your store</p>
+          <div class="flags" id="flags">
+            <!-- se rellenan por JS -->
+          </div>
+          <p class="stores-hint">Content language: <span id="langLabel">English</span></p>
+        </div>
+      </div>
+
+      <div id="bookIntro"></div>
+      <ul class="features" id="bookBullets"></ul>
+    </section>
+  </main>
+
+  <!-- Imágenes grandes debajo -->
+  <section class="book-extra" id="bookExtra" hidden></section>
+
+  <!-- (Tu sección grid existente: la dejo tal cual por si la quieres usar) -->
+  <section class="more-books" id="moreBooks" hidden></section>
+
+  <!-- === YOU MAY ALSO LIKE === -->
+  <section class="ac-covers ac-like" id="related">
+    <h2 class="ac-like-title">YOU MIGHT ALSO ENJOY</h2>
+    <div class="ac-covers__inner">
+      <button class="ac-arrow ac-arrow--left" aria-label="Anterior" title="Anterior">
+        <svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true">
+          <path d="M15.5 4.5 8 12l7.5 7.5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </button>
+
+      <div class="ac-track" id="relatedTrack"></div>
+
+      <button class="ac-arrow ac-arrow--right" aria-label="Siguiente" title="Siguiente">
+        <svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true">
+          <path d="M8.5 4.5 16 12l-7.5 7.5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </button>
+
+      <div class="ac-fade ac-fade--left" aria-hidden="true"></div>
+      <div class="ac-fade ac-fade--right" aria-hidden="true"></div>
+    </div>
+  </section>
+
+  <!-- === RECENTLY VIEWED === -->
+  <section class="ac-covers ac-like" id="recent" hidden>
+    <h2 class="ac-like-title">RECENTLY VIEWED</h2>
+    <div class="ac-covers__inner">
+      <button class="ac-arrow ac-arrow--left" aria-label="Anterior" title="Anterior">
+        <svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true">
+          <path d="M15.5 4.5 8 12l7.5 7.5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </button>
+
+      <div class="ac-track" id="recentTrack"></div>
+
+      <button class="ac-arrow ac-arrow--right" aria-label="Siguiente" title="Siguiente">
+        <svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true">
+          <path d="M8.5 4.5 16 12l-7.5 7.5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </button>
+
+      <div class="ac-fade ac-fade--left" aria-hidden="true"></div>
+      <div class="ac-fade ac-fade--right" aria-hidden="true"></div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <div id="footer"></div>
+
+  <script src="loadComponents.js" defer></script>
+  <script src="assets/js/books.js"></script>
+
+  <script>
+    /* ========== utilidades existentes ========== */
+    function getSlug() {
+      const u = new URL(window.location.href);
+      return u.searchParams.get('slug') || '';
+    }
+    function formatPrice(n, currency='USD') {
+      try { return new Intl.NumberFormat('en-US',{style:'currency',currency}).format(n); }
+      catch(e){ return `$${n.toFixed(2)}`; }
+    }
+
+    function buildBookPage(data){
+      const page   = document.getElementById('bookPage');
+      const main   = document.getElementById('bookMain');
+      const thumbs = document.getElementById('bookThumbs');
+      const t      = document.getElementById('bookTitle');
+      const p      = document.getElementById('bookPrice');
+      const intro  = document.getElementById('bookIntro');
+      const bullets= document.getElementById('bookBullets');
+      const extraWrap = document.getElementById('bookExtra');
+
+      // 👉 añade estos datos al contenedor principal
+      page.dataset.id = getCurrentBookSlug();
+      page.dataset.title = data.title;
+
+      /* ===== AÑADIDO: anclar corazón a la PORTADA ===== */
+      const bookLeft = page.querySelector('.book-left');
+      let coverWrap = bookLeft.querySelector('.cover-wrap');
+      if (!coverWrap) {
+        coverWrap = document.createElement('div');
+        coverWrap.className = 'cover-wrap';
+        bookLeft.insertBefore(coverWrap, main); // colocar wrapper donde estaba la imagen
+        coverWrap.appendChild(main);            // mover #bookMain dentro del wrapper
+      }
+      if (!coverWrap.querySelector('.book-favorite-btn')) {
+        const favBtn = document.createElement('span');
+        favBtn.className = 'favorite-btn book-favorite-btn';
+        coverWrap.appendChild(favBtn);
+        if (typeof initFavoritesButtons === 'function') initFavoritesButtons();
+      }
+      /* ===== FIN AÑADIDO ===== */
+
+      // Breadcrumb
+      const bc = document.getElementById('breadcrumb');
+      const bcCurrent = document.getElementById('crumbCurrent');
+      if (bc && bcCurrent) {
+        bcCurrent.textContent = data.title;
+        bc.hidden = false;
+      }
+
+      // Título y precio
+      t.textContent = data.title;
+      p.textContent = formatPrice(data.price, data.currency || 'USD');
+
+      // Intro + bullets
+      intro.innerHTML = (data.intro || []).map(txt => `<p>${txt}</p>`).join('');
+      bullets.innerHTML = (data.bullets || []).map(li => `<li>${li}</li>`).join('');
+
+      // Galería
+      const imgs = Array.isArray(data.images) ? data.images : [];
+      if(imgs.length){
+        main.src = imgs[0];
+        main.alt = data.title + " cover";
+        thumbs.innerHTML = imgs.map((src,i)=>
+          `<img src="${src}" alt="Preview ${i+1}" data-idx="${i}" ${i===0?'class="active"':''}/>`
+        ).join('');
+
+        const thumbsWrap = document.querySelector('.thumbs-wrap');
+        const tPrev = thumbsWrap.querySelector('.t-prev');
+        const tNext = thumbsWrap.querySelector('.t-next');
+        const thumbImgs = Array.from(thumbs.querySelectorAll('img'));
+
+        let current = 0;
+        function setIndex(i){
+          if (i < 0) i = imgs.length - 1;
+          if (i >= imgs.length) i = 0;
+          current = i;
+          main.src = imgs[current];
+          main.alt = `${data.title} — preview ${current+1}`;
+          thumbImgs.forEach(el => el.classList.remove('active'));
+          thumbImgs[current].classList.add('active');
+          thumbImgs[current].scrollIntoView({ behavior: 'smooth', inline: 'center', block: 'nearest' });
+        }
+
+        thumbs.addEventListener('click', (e)=>{
+          const img = e.target.closest('img[data-idx]');
+          if(!img) return;
+          setIndex(+img.dataset.idx);
+        });
+
+        tPrev.addEventListener('click', () => setIndex(current - 1));
+        tNext.addEventListener('click', () => setIndex(current + 1));
+
+        document.addEventListener('keydown', (e) => {
+          if (e.key === 'ArrowLeft') setIndex(current - 1);
+          else if (e.key === 'ArrowRight') setIndex(current + 1);
+        });
+
+        setIndex(0);
+      }
+
+      // EXTRA: imágenes grandes debajo
+      if (Array.isArray(data.sections) && data.sections.length){
+        extraWrap.innerHTML = data.sections.slice(0,5).map(src =>
+          `<img src="${src}" alt="${data.title} extra image">`
+        ).join('');
+        extraWrap.hidden = false;
+      }
+
+      page.hidden = false;
+      document.title = `ArtCosmos – ${data.title}`;
+    }
+
+    /* ========== Carruseles ========== */
+
+    function initCarouselForSection(sectionEl){
+      const track = sectionEl.querySelector('.ac-track');
+      const prev  = sectionEl.querySelector('.ac-arrow--left');
+      const next  = sectionEl.querySelector('.ac-arrow--right');
+      if (!track || !prev || !next) return;
+
+      function stepSize(){
+        const card = track.querySelector('.ac-card');
+        if(!card) return 300;
+        const style = getComputedStyle(track);
+        const gap = parseFloat(style.columnGap || style.gap || 16);
+        return card.getBoundingClientRect().width + gap;
+      }
+      function updateArrows(){
+        const maxScroll = track.scrollWidth - track.clientWidth - 1;
+        prev.disabled = track.scrollLeft <= 0;
+        next.disabled = track.scrollLeft >= maxScroll;
+      }
+
+      prev.addEventListener('click', ()=> track.scrollBy({left: -stepSize(), behavior:'smooth'}));
+      next.addEventListener('click', ()=> track.scrollBy({left:  stepSize(), behavior:'smooth'}));
+      track.addEventListener('scroll', updateArrows, {passive:true});
+      window.addEventListener('resize', updateArrows);
+
+      track.setAttribute('tabindex','0');
+      track.addEventListener('keydown', (e)=>{
+        if(e.key === 'ArrowRight') track.scrollBy({left: stepSize(), behavior:'smooth'});
+        if(e.key === 'ArrowLeft')  track.scrollBy({left: -stepSize(), behavior:'smooth'});
+      });
+
+      updateArrows();
+    }
+
+    function getCurrentBookSlug() {
+      return getSlug() || Object.keys(window.BOOKS || {})[0] || '';
+    }
+
+    function renderRelatedCarousel(currentSlug) {
+      const section = document.getElementById('related');
+      const wrap = section.querySelector('.ac-track');
+      if (!wrap || !window.BOOKS) return;
+      let items = Object.entries(window.BOOKS).filter(([slug]) => slug !== currentSlug);
+      if (!items.length) items = Object.entries(window.BOOKS);
+      wrap.innerHTML = items.map(([slug, book]) => `
+        <a class="ac-card" href="book.html?slug=${encodeURIComponent(slug)}">
+          <img class="ac-img" src="${(book.images && book.images[0]) || 'assets/img/placeholder.png'}" alt="${book.title || 'Coloring Book'}">
+          <h3 class="ac-title">${book.title || 'Coloring Book'}</h3>
+          <div class="ac-price">${(typeof formatPrice==='function')
+            ? formatPrice(book.price || 0, book.currency || 'USD')
+            : ('$' + (book.price || 0))}</div>
+        </a>
+      `).join('');
+      initCarouselForSection(section);
+    }
+
+    function renderRecentlyViewed(currentSlug) {
+      const section = document.getElementById('recent');
+      if (!section) return;
+      const track = section.querySelector('.ac-track');
+
+      const slugs = rvRead();
+      const items = slugs.map(slug => [slug, window.BOOKS?.[slug]]).filter(([,b]) => !!b);
+
+      if (!items.length) { section.hidden = true; return; }
+      section.hidden = false;
+
+      track.innerHTML = items.map(([slug, book]) => `
+        <a class="ac-card" href="book.html?slug=${encodeURIComponent(slug)}">
+          <img class="ac-img"
+               src="${(book.images && book.images[0]) || 'assets/img/placeholder.png'}"
+               alt="${book.title || 'Coloring Book'}">
+          <h3 class="ac-title">${book.title || 'Coloring Book'}</h3>
+          <div class="ac-price">${
+            (typeof formatPrice==='function') ? formatPrice(book.price || 0, book.currency || 'USD') : ('$' + (book.price || 0))
+          }</div>
+        </a>
+      `).join('');
+
+      initCarouselForSection(section);
+    }
+
+    /* ====== Recently Viewed (localStorage) ====== */
+    const RV_KEY = 'ac_recent_books';
+    const RV_LIMIT = 5;
+
+    function rvRead() {
+      try {
+        const raw = localStorage.getItem(RV_KEY);
+        const arr = JSON.parse(raw || '[]');
+        return Array.isArray(arr) ? arr : [];
+      } catch { return []; }
+    }
+    function rvWrite(arr) {
+      try { localStorage.setItem(RV_KEY, JSON.stringify(arr)); } catch {}
+    }
+    function rvPush(slug) {
+      if (!slug) return;
+      const arr = rvRead().filter(s => s !== slug);
+      arr.unshift(slug);
+      if (arr.length > RV_LIMIT) arr.length = RV_LIMIT;
+      rvWrite(arr);
+    }
+
+    /* ========== Arranque ========== */
+    (function init(){
+      const slug = getCurrentBookSlug();
+      const data = window.BOOKS?.[slug];
+      if (!data) {
+        document.body.innerHTML = '<p style="padding:24px;font-size:18px">Book not found. <a href="collection.html">Back to Collection</a></p>';
+        return;
+      }
+
+      // Pintar ficha
+      buildBookPage(data);
+
+      // Guardar y mostrar "Recently Viewed"
+      rvPush(slug);
+      renderRecentlyViewed(slug);
+
+      // Mostrar "You may also like"
+      renderRelatedCarousel(slug);
+
+      // Si quieres también tu grid viejo:
+      // renderMoreBooks(slug);
+    })();
+  </script>
+  <script src="loadComponents.js" defer></script>
+  <script src="assets/js/menu.js" defer></script>
+  <script src="assets/js/buy.js" defer></script>
+  <script src="assets/js/favorites.js" defer></script>
+</body>
+</html>

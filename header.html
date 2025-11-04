@@ -1,0 +1,78 @@
+<!-- HEADER ESCRITORIO -->
+<header>
+  <div class="header-top">
+    <!-- Logo a la izquierda -->
+    <div class="logo-center">
+      <a href="index.html" class="logo-link">Art Cosmos</a>
+    </div>
+
+    <!-- Buscador en el centro -->
+    <div class="search-box">
+      <input type="text" placeholder="Search our collection">
+    </div>
+
+    <!-- Corazón Favoritos a la derecha -->
+    <a href="wishlist.html" class="favorites-counter" id="favoritesBtn">
+      <span class="heart-icon">♡</span>
+      <span class="count" id="favoritesCount">0</span>
+    </a>
+  </div>
+
+  <!-- Menú fijo sticky -->
+  <nav class="sticky-menu">
+    <ul class="menu">
+      <li><a href="index.html" class="active">Home</a></li>
+      <li><a href="collection.html">Collection</a></li>
+      <li><a href="digital.html">Digital</a></li>
+      <li><a href="about.html">About Us</a></li>
+      <li><a href="gallery.html">Gallery</a></li>
+      <li><a href="faqs.html">FAQs</a></li>
+    </ul>
+  </nav>
+</header>
+
+<!-- HEADER MÓVIL -->
+<div class="ac-header-mobile">
+  <button class="ac-burger" aria-expanded="false" aria-controls="ac-drawer" aria-label="Open menu">☰</button>
+  <a class="ac-logo" href="index.html">Art Cosmos</a>
+
+  <!-- 👇 Sustituye SOLO este bloque .ac-actions -->
+  <div class="ac-actions">
+    <!-- Botón de búsqueda con tu icono -->
+    <button class="ac-search-toggle ac-icon-btn" aria-controls="ac-search" aria-expanded="false" aria-label="Search">
+      <img src="assets/img/lupa.png" alt="Search" class="ac-icon" />
+    </button>
+
+    <!-- Corazón con contador en móvil -->
+    <a class="ac-heart ac-icon-btn" href="wishlist.html" aria-label="Wishlist">
+      <span class="ac-heart-icon">♡</span>
+      <span class="ac-badge" id="favoritesCountMobile">0</span>
+    </a>
+  </div>
+  <!-- ☝️ Fin del bloque a reemplazar -->
+</div>
+
+<!-- BUSCADOR PLEGABLE (se queda igual) -->
+<div id="ac-search" class="ac-search" hidden>
+  <form action="search.html">
+    <input type="search" name="q" placeholder="Search our collection" />
+  </form>
+</div>
+
+
+<!-- DRAWER MENÚ -->
+<nav id="ac-drawer" class="ac-drawer" aria-hidden="true">
+  <div class="ac-drawer-header">
+    <span>Menu</span>
+    <button class="ac-close" aria-label="Close menu">✕</button>
+  </div>
+  <ul class="ac-menu">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="collection.html">Collection</a></li>
+    <li><a href="digital.html">Digital</a></li>
+    <li><a href="about.html">About Us</a></li>
+    <li><a href="gallery.html">Gallery</a></li>
+    <li><a href="faqs.html">FAQs</a></li>
+  </ul>
+</nav>
+<div class="ac-drawer-overlay" hidden></div>

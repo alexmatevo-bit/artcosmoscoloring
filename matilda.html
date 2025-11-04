@@ -1,0 +1,484 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Meet Matilda</title>
+  <link rel="stylesheet" href="assets/css/style.css" />
+
+  <style>
+    /* =========================
+       CONTROLES RÁPIDOS
+    ========================== */
+    :root{
+      /* Escala global del carrusel (TODO el bloque: imágenes, flechas y títulos) */
+      --carousel-scale: 0.88; /* ← ajusta: 0.95, 0.9, 0.85, etc. */
+    }
+
+    /* ==== Sección HERO ==== */
+    .hero {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 40px 40px 10px 40px; /* arriba 40, lados 40, abajo 10 */
+      max-width: 1200px;
+      margin: auto;
+      flex-wrap: wrap;
+    }
+
+    
+
+ .hero {
+  position: relative; /* referencia para la imagen absoluta */
+  min-height: 400px;  /* asegura espacio mínimo para que no pise el carrusel */
+}
+
+.hero-image {
+  position: absolute;
+  right: -90px;   /* controla cuánto se acerca a la derecha */
+  top: -30px;     /* controla cuánto baja */
+}
+
+.hero-image img {
+  width: 480px;   /* ajústalo al tamaño que quieras */
+  height: auto;
+}
+
+
+
+    /* === SOLO Capybaras (no se usa aquí, lo dejo por si lo necesitas en otras páginas) === */
+    .hero.capys {
+      padding: 40px 40px 0 40px;
+    }
+    .hero.capys .hero-image img {
+      max-width: 230px;
+      transform: translateY(-40px);
+    }
+
+    /* =========================
+       CARRUSEL + ESCALA GLOBAL
+    ========================== */
+
+    /* Wrapper que ESCALA todo el bloque del carrusel */
+    .carousel-zoom{
+      display: inline-block;                /* se ajusta a su contenido */
+      transform: scale(var(--carousel-scale));
+      transform-origin: top center;         /* escala desde arriba al centro */
+    }
+
+    /* Centrado visual del bloque escalado */
+    .collection{
+      text-align: center;
+    }
+    .collection .carousel-zoom{
+      margin: 0 auto;
+    }
+
+    /* Contenedor del carrusel (mantengo tus reglas y tu translateX) */
+    .carousel-container{
+      position: relative;
+      max-width: 900px;
+      margin: -50px auto 0;     /* sube el bloque */
+      overflow: visible;
+      transform: translateX(-230px); /* mueve todo el bloque horizontalmente */
+    }
+
+    .carousel-wrapper{
+      overflow: hidden;           /* recorta lo que se sale */
+    }
+
+    .carousel{
+      display: flex;
+      gap: 0;                     /* sin huecos entre tarjetas (el aire lo da el padding de .book-card) */
+      transition: transform 0.4s ease-in-out;
+    }
+
+    /* 3 tarjetas visibles, sin aire sobrante (el fino lo da el padding) */
+    .book-card{
+      min-width: calc(100% / 3);  /* = 33.333% fijo, coincide con tu JS */
+      padding: 6px;               /* micro-espacio entre portadas */
+      box-sizing: border-box;
+      text-align: center;
+    }
+
+    /* El enlace envuelve toda la tarjeta para que todo sea clicable */
+    .book-card a{
+      display: block;
+    }
+
+    /* Imagen un poco más pequeña dentro de su tarjeta.
+       (Recuerda: además de esto, TODO el bloque está escalado por .carousel-zoom) */
+    .book-card img{
+      width: 90%;          /* prueba 92/90/88 según te guste */
+      max-width: none;
+      height: auto;
+      display: block;
+      border-radius: 12px;
+      margin: 0 auto;      /* centra la imagen en su tarjeta */
+    }
+
+    .book-card {
+  min-width: calc(100% / 3);
+  padding: 6px;
+  box-sizing: border-box;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.book-card h3 {
+  order: -1;             /* mueve el título arriba */
+  margin-bottom: 8px;    /* separa del cover */
+  font-size: 1.05rem;
+  line-height: 1.25;
+  text-align: center;    /* lo centra horizontalmente */
+}
+
+
+    /* ==== Flechas ==== */
+    .arrow {
+      position: absolute;
+      top: 45%;
+      transform: translateY(-50%);
+      font-size: 1.8rem;
+      width: 50px;
+      height: 50px;
+      background: white;
+      color: black;
+      border: none;
+      cursor: pointer;
+      border-radius: 50%;
+      z-index: 10;
+
+      /* sombra flotante */
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15),
+                  0 0 30px rgba(0, 0, 0, 0.1);
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .arrow:hover {
+      transform: translateY(-50%) scale(1.1);
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2),
+                  0 0 40px rgba(0, 0, 0, 0.15);
+    }
+
+    .arrow.left { left: -60px; }
+    .arrow.right { right: -60px; }
+    /* ——— Texto centrado y con hueco a la derecha para el goblin ——— */
+.hero-content{
+  flex: 0 1 100%;
+  max-width: 980px;
+  margin: 0 auto 24px;
+  padding: 0 24px;
+  text-align: center;
+}
+
+.hero-content h1{
+  margin: 16px 0 18px;
+  font-weight: 800;
+  line-height: 1.1;
+  /* un poco más contenido para que no choque */
+  font-size: clamp(36px, 3.8vw, 56px);
+}
+
+.hero-content p{
+  max-width: 930px;
+  margin: 0 auto 18px;
+  line-height: 1.65;
+  font-size: clamp(15px, 1.6vw, 20px);
+}
+
+/* En pantallas anchas: deja espacio para la imagen (≈ ancho de la imagen + margen) */
+@media (min-width: 1200px){
+  .hero-content{
+    padding-right: 520px; /* si tu img es de 480px, deja ~520 para respirar */
+  }
+}
+
+/* En pantallas medias/pequeñas: apila y reduce la imagen para que no pise el texto */
+@media (max-width: 1199px){
+  .hero{ min-height: auto; }
+  .hero-image{ position: static; margin: 12px auto 0; text-align: center; }
+  .hero-image img{ width: 440px; height: auto; }
+}
+/* === Ajustes de ancho del bloque de texto del HERO === */
+:root{
+  /* diales rápidos: sube/baja estos números */
+  --hero-max: 1120px;      /* antes 980px → más ancho el bloque */
+  --hero-p-max: 1060px;    /* antes 930px → más ancho cada párrafo */
+  --hero-gap-desktop: 480px; /* antes 520px → reserva un poco menos de hueco para el goblin */
+}
+
+.hero-content{
+  max-width: var(--hero-max);
+}
+
+.hero-content p{
+  max-width: var(--hero-p-max);
+}
+
+/* reserva de espacio a la derecha en desktop */
+@media (min-width: 1200px){
+  .hero-content{
+    padding-right: var(--hero-gap-desktop);
+  }
+}
+/* ==== Sección HERO (revisado) ==== */
+.hero{
+  position: relative;
+  max-width: 1280px;            /* más ancho que 1200 para dar aire */
+  margin: 0 auto;
+  padding: 40px 40px 10px;
+  min-height: 420px;
+}
+
+.hero-content{
+  flex: 0 1 100%;
+  margin: 0 auto 24px;
+  text-align: center;
+  max-width: 1180px;            /* ANCHO del bloque de texto */
+  padding: 0 24px;
+}
+
+.hero-content h1{
+  margin: -50px 0 18px;
+  font-weight: 800;
+  line-height: 1.1;
+  font-size: clamp(38px, 4.5vw, 60px);
+}
+
+.hero-content p{
+  margin: 0 auto 18px;
+  max-width: 1120px;            /* ANCHO de cada párrafo */
+  line-height: 1.65;
+  font-size: clamp(16px, 1.6vw, 20px);
+}
+
+/* Deja hueco a la derecha para el goblin (ajusta este número) */
+@media (min-width: 1200px){
+  .hero-content{ padding-right: 460px; } /* 420–520 según lo veas */
+}
+
+/* Imagen del goblin */
+.hero-image{ position:absolute; right:-50px; top:10px; }
+.hero-image img{ width:480px; height:auto; }
+
+/* En pantallas medianas/pequeñas apila todo */
+@media (max-width: 1199px){
+  .hero{ min-height:auto; }
+  .hero-content{ padding-right: 0; }
+  .hero-image{ position: static; margin: 12px auto 0; text-align:center; }
+  .hero-image img{ width: 360px; height:auto; }
+}
+/* === OVERRIDES FINALES PARA EL HERO (Friendly) === */
+.hero.friendly{ 
+  max-width: 1400px !important;           /* permite más ancho total del bloque */
+}
+
+/* Bloque de texto más ancho y centrado */
+.hero.friendly .hero-content{
+  margin: 0 auto 24px !important;
+  text-align: center !important;
+  max-width: 1240px !important;           /* ← ensancha el bloque de texto */
+  padding: 0 24px !important;
+}
+
+/* Título (ajusta si lo quieres más/menos grande) */
+.hero.friendly .hero-content h1{
+  font-size: clamp(40px, 4.5vw, 64px) !important;
+  margin: 16px 0 18px !important;
+  line-height: 1.1 !important;
+  font-weight: 800 !important;
+}
+
+/* Párrafos más anchos */
+.hero.friendly .hero-content p{
+  max-width: 1200px !important;           /* ← ensancha cada párrafo */
+  margin: 0 auto 18px !important;
+  line-height: 1.7 !important;
+  font-size: clamp(16px, 1.5vw, 20px) !important;
+}
+
+/* Reserva el hueco a la derecha para el goblin en desktop */
+@media (min-width: 1200px){
+  .hero.friendly .hero-content{
+    padding-right: 500px !important;      /* 480–520 según veas en tu pantalla */
+  }
+}
+
+  </style>
+</head>
+<body>
+
+  <!-- Header dinámico -->
+  <div id="header"></div>
+
+  <!-- ======== HERO SECCIÓN ======== -->
+<section class="hero matilda">
+  <div class="hero-content">
+    <h1>Meet Matilda</h1>
+    <p class="intro">
+      <span class="highlight">Who was Matilda? Matilda was more than just a dog, she was our world.
+A little ball of joy who filled our lives with warmth, laughter, and unforgettable memories. Her playful spirit, gentle eyes, and unconditional love inspired us every single day.
+    </p>
+    <p>
+      This book was created in her honor, to celebrate the simple happiness she brought into our world.  
+      Through these illustrations, we hope to share a piece of her story  
+      a reminder of how the love of a pet can brighten every corner of our lives.
+    </p>
+    <blockquote>
+      “Forever our first best friend, always in our hearts.”  
+    </blockquote>
+  </div>
+  <div class="hero-image">
+    <img src="assets/img/122.png" alt="Matilda">
+  </div>
+</section>
+
+
+<!-- ======== CARRUSEL ======== -->
+<section class="collection">
+  <h2 style="text-align:center;"></h2>
+  <div class="carousel-container">
+    <button class="arrow left" onclick="prevSlide()">&#10094;</button>
+
+    <div class="carousel-wrapper">
+      <div class="carousel" id="carousel">
+        
+        <div class="book-card">
+  <a href="book.html?slug=my-best-friend-matilda">
+    <img src="assets/img/books/my-best-friend-matilda/cover.jpg" alt="My Best Friend Matilda">
+    <h3>My Best Friend Matilda</h3>
+  </a>
+</div>
+
+<div class="book-card">
+  <a href="book.html?slug=fun-in-the-park-animals-adventures">
+    <img src="assets/img/books/fun-in-the-park-animals-adventures/cover.jpg" alt="Fun In The Park: Animals Adventures">
+    <h3>Fun In The Park: Animals Adventures</h3>
+  </a>
+</div>
+
+<div class="book-card">
+  <a href="book.html?slug=animals-from-all-the-world">
+    <img src="assets/img/books/animals-from-all-the-world/cover.jpg" alt="Animals From All The World">
+    <h3>Animals From All The World</h3>
+  </a>
+</div>
+
+<div class="book-card">
+  <a href="book.html?slug=funny-working-animals">
+    <img src="assets/img/books/funny-working-animals/cover.jpg" alt="Funny Workind Animals">
+    <h3>Funny Workind Animals</h3>
+  </a>
+</div>
+
+<div class="book-card">
+  <a href="book.html?slug=planet-animal">
+    <img src="assets/img/books/planet-animal/cover.jpg" alt="Planet Animal">
+    <h3>Planet Animal</h3>
+  </a>
+</div>
+
+<div class="book-card">
+  <a href="book.html?slug=zoo-olympia">
+    <img src="assets/img/books/zoo-olympia/cover.jpg" alt="Zoo Olimpia">
+    <h3>Zoo Olimpia</h3>
+  </a>
+</div>
+
+          </div>
+        </div>
+
+        <button class="arrow right" onclick="nextSlide()">&#10095;</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer dinámico -->
+  <div id="footer"></div>
+
+  <!-- Scripts -->
+  <script src="loadComponents.js" defer></script>
+  <script>
+    let index = 0;
+    const carousel = document.getElementById('carousel');
+    const cards = document.querySelectorAll('.book-card');
+    const visible = 3; // mostrar 3
+    const total = cards.length;
+
+    function showSlide() {
+      const cardWidth = cards[0].offsetWidth;
+      carousel.style.transform = `translateX(${-index * cardWidth}px)`;
+    }
+
+    function nextSlide() {
+      if (index < total - visible) {
+        index += visible; // avanzar de 3 en 3
+        if (index > total - visible) index = total - visible;
+      }
+      showSlide();
+    }
+
+    function prevSlide() {
+      if (index > 0) {
+        index -= visible; // retroceder de 3 en 3
+        if (index < 0) index = 0;
+      }
+      showSlide();
+    }
+
+    window.addEventListener("resize", showSlide);
+
+    /* === Controles con teclado === */
+    document.addEventListener("keydown", e => {
+      if (e.key === "ArrowRight") nextSlide();
+      if (e.key === "ArrowLeft") prevSlide();
+    });
+
+    /* === Swipe en móviles === */
+    let touchStartX = 0;
+    carousel.addEventListener("touchstart", e => {
+      touchStartX = e.touches[0].clientX;
+    });
+    carousel.addEventListener("touchend", e => {
+      let touchEndX = e.changedTouches[0].clientX;
+      if (touchStartX - touchEndX > 50) nextSlide();   // swipe izquierda
+      if (touchEndX - touchStartX > 50) prevSlide();   // swipe derecha
+    });
+
+    /* === Drag con ratón === */
+    let isDragging = false;
+    let startX = 0;
+    let endX = 0;
+
+    carousel.addEventListener("mousedown", e => {
+      isDragging = true;
+      startX = e.clientX;
+    });
+
+    carousel.addEventListener("mousemove", e => {
+      if (!isDragging) return;
+      endX = e.clientX;
+    });
+
+    carousel.addEventListener("mouseup", () => {
+      if (!isDragging) return;
+      let diff = startX - endX;
+      if (diff > 50) nextSlide();      // drag izquierda
+      if (diff < -50) prevSlide();     // drag derecha
+      isDragging = false;
+    });
+
+    carousel.addEventListener("mouseleave", () => {
+      isDragging = false;
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ArtCosmos - Home</title>
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+
+<!-- Header dinámico -->
+<div id="header"></div>
+
+
+<!-- ======== SECCIÓN 1: SLIDER ======== -->
+<section class="slider-section full-section">
+  <div class="slider-container">
+    <div class="slide active">
+      <img src="assets/img/slide1.jpg" alt="Slide 1">
+    </div>
+    <div class="slide">
+      <img src="assets/img/slide2.png" alt="Slide 2">
+    </div>
+    <div class="slide">
+      <img src="assets/img/slide3.png" alt="Slide 3">
+    </div>
+    <div class="slide">
+      <img src="assets/img/slide4.png" alt="Slide 4">
+    </div>
+    <div class="slide">
+      <img src="assets/img/slide5.png" alt="Slide 5">
+    </div>
+
+    <!-- Flechas de navegación -->
+    <button class="prev">&#10094;</button>
+    <button class="next">&#10095;</button>
+  </div>
+</section>
+
+<!-- ======== SECCIÓN 2: HERO ======== -->
+<section class="hero full-section">
+  <!-- Imagen completa -->
+  <img src="assets/img/art-cosmos-hero.png" alt="Art Cosmos" class="hero-image">
+
+  <!-- Botón sobre la imagen -->
+  <div class="button-container">
+    <a href="collection.html" class="btn">Explore Collection</a>
+  </div>
+</section>
+
+<style>
+.hero {
+  position: relative;
+  text-align: center;
+}
+
+.hero-image {
+  width: 80%;
+  height: auto;
+  display: block;
+  border-radius: 20px; /* también redondea la imagen */
+}
+
+.button-container {
+  position: absolute;
+  bottom: 180px; /* distancia desde abajo */
+  left: 51.5%;
+  right: 60px;     /* distancia desde el borde derecho */
+  transform: translateX(-50%);
+}
+
+.btn {
+  background-color: #ffbabb;
+  color: white;
+  padding: 20px 40px;
+  text-decoration: none;
+  border-radius: 8px;
+  font-size: 25px;
+  font-weight: bold;
+  transition: background 0.3s ease;
+}
+
+.image-box {
+  display: inline-block;
+  background: white;   /* o el color que quieras */
+  padding: 10px;
+  border-radius: 20px;
+}
+
+.btn:hover {
+  background-color: #ffbabb;
+}
+</style>
+
+
+<!-- ======== SECCIÓN: MEET THE CREW ======== -->
+<section class="characters full-section">
+  <h2 class="section-title">Meet Our Characters</h2>
+
+   <div class="chars"> <a class="char left" href="capybara.html"> 
+    <img src="assets/img/chars/1.png" alt="Leo the Lion"> 
+    <span>Capybara</span> 
+    </a>
+
+    <a class="char left" href="goblin.html">
+      <img src="assets/img/chars/2.png" alt="Mei Mei the Panda">
+      <span>Goblin</span>
+    </a>
+
+    <a class="char center" href="matilda.html">
+      <img src="assets/img/chars/3.png" alt="Matilda">
+      <span>Matilda</span>
+    </a>
+
+    <a class="char right" href="agent.html">
+      <img src="assets/img/chars/4.png" alt="Rani the Elephant">
+      <span>Agent Secret</span>
+    </a>
+    <a class="char right forest" href="friendly.html">
+  <img src="assets/img/chars/5.png" alt="Fun in the forest">
+  <span>Friendly Creatures</span>
+</a>
+  </div>
+
+</section>
+
+
+<!-- ======== SECCIÓN 4: BEST SELLER ======== -->
+<section class="bestseller full-section">
+  <h2 class="section-title">Best Seller</h2>
+    <a href="best-sellers.html" class="view-more">View more</a>
+
+
+  <div class="collection-grid">
+
+    <div class="book-card">
+      <a href="book.html?slug=my-best-friend-matilda">
+        <img src="assets/img/books/my-best-friend-matilda/cover.jpg" alt="My Best Friend Matilda">
+        <h3>My Best Friend Matilda</h3>
+        <p>$9.99</p>
+      </a>
+    </div>
+
+    <div class="book-card">
+      <a href="book.html?slug=cute-and-cuddly-capybaras">
+        <img src="assets/img/books/cute-%26-cuddly-capybaras/cover.jpg" alt="Cute & Cuddly Capybaras">
+        <h3>Cute & Cuddly Capybaras</h3>
+        <p>$8.99</p>
+      </a>
+    </div>
+
+    <div class="book-card">
+      <a href="book.html?slug=explore-the-ocean">
+        <img src="assets/img/books/explore-the-ocean/cover.jpg" alt="Explore The Ocean">
+        <h3>Explore The Ocean</h3>
+        <p>$9.99</p>
+      </a>
+    </div>
+
+    <div class="book-card">
+      <a href="book.html?slug=cuddle-animals">
+        <img src="assets/img/books/cuddle-animals/cover.jpg" alt="Cuddle Animals">
+        <h3>Cuddle Animals</h3>
+        <p>$8.99</p>
+      </a>
+    </div>
+
+  </div>
+
+ 
+</section>
+
+<!-- ======== SECCIÓN 4: NEW RELEASE ======== -->
+<section class="bestseller full-section new-release">
+  <h2 class="section-title">New Release</h2>
+    <a href="collection.html" class="view-more"></a>
+
+  <div class="collection-grid">
+
+    <div class="book-card">
+      <a href="book.html?slug=rani">
+        <img src="assets/img/books/rani/cover.jpg" alt="Rani in Jaipur">
+        <h3>Rani in Jaipur</h3>
+        <p>$9.99</p>
+      </a>
+    </div>
+
+    <div class="book-card">
+      <a href="book.html?slug=cuddle-animalsII">
+        <img src="assets/img/books/cuddle-animalsII/cover.jpg" alt="Cuddle Animals II">
+        <h3>Cuddle Animals II</h3>
+        <p>$8.99</p>
+      </a>
+    </div>
+
+    <div class="book-card">
+      <a href="book.html?slug=zoo-olympia">
+        <img src="assets/img/books/zoo-olympia/cover.jpg" alt="Zoo Olympia">
+        <h3>Zoo Olympia</h3>
+        <p>$9.99</p>
+      </a>
+    </div>
+
+    <div class="book-card">
+      <a href="book.html?slug=leos-advetnures-in-rome">
+        <img src="assets/img/books/leos-advetnures-in-rome/cover.jpg" alt="Leo's adventures in Rome">
+        <h3>Leo's adventures in Rome</h3>
+        <p>$9.99</p>
+      </a>
+    </div>
+
+  </div>
+
+ 
+</section>
+
+<!-- VIDEO SECTION -->
+<section class="video-section">
+  <h2 class="video-title"></h2>
+ <div class="video-container">
+  <video autoplay muted loop playsinline>
+    <source src="assets/videos/coloring.mp4" type="video/mp4">
+
+    Tu navegador no soporta video.
+  </video>
+</div>
+
+</section>
+
+<!-- SECCIÓN 7: MARCAS COMPRAR -->
+
+<section class="featured-on">
+  <div class="featured-wrapper">
+    <img src="assets/img/art-cosmos-base.png" alt="Art Cosmos Featured">
+
+    <a href="https://www.amazon.com/stores/Art-Cosmos/author/B0FF3KXHV4" target="_blank" class="logo amazon">
+      <img src="assets/img/amazon.png" alt="Amazon">
+    </a>
+    <a href="https://www.etsy.com/shop/ArtCosmosColoring" target="_blank" class="logo etsy">
+      <img src="assets/img/etsy.png" alt="Etsy">
+    </a>
+  </div>
+</section>
+
+
+
+
+<!-- Footer dinámico -->
+<div id="footer"></div>
+
+<!-- Scripts -->
+<script src="loadComponents.js" defer></script>
+
+<!-- 🔹 Script para menú sticky dinámico -->
+<script>
+  window.addEventListener('DOMContentLoaded', () => {
+    const observer = new MutationObserver(() => {
+      const menu = document.querySelector('.sticky-menu');
+      const headerTop = document.querySelector('.header-top');
+
+      if (menu && headerTop) {
+        window.addEventListener('scroll', () => {
+          if (window.scrollY > headerTop.offsetHeight) {
+            menu.classList.add('sticky-fixed');
+          } else {
+            menu.classList.remove('sticky-fixed');
+          }
+        });
+        observer.disconnect();
+      }
+    });
+
+    observer.observe(document.getElementById('header'), { childList: true, subtree: true });
+  });
+</script>
+
+<!-- 🔹 Script para slider -->
+<script>
+  let currentSlide = 0;
+  const slides = document.querySelectorAll('.slide');
+  const totalSlides = slides.length;
+  const nextBtn = document.querySelector('.next');
+  const prevBtn = document.querySelector('.prev');
+
+  function showSlide(index) {
+    slides.forEach((slide, i) => {
+      slide.classList.toggle('active', i === index);
+    });
+  }
+
+  function nextSlide() {
+    currentSlide = (currentSlide + 1) % totalSlides;
+    showSlide(currentSlide);
+  }
+
+  function prevSlide() {
+    currentSlide = (currentSlide - 1 + totalSlides) % totalSlides;
+    showSlide(currentSlide);
+  }
+
+  nextBtn.addEventListener('click', nextSlide);
+  prevBtn.addEventListener('click', prevSlide);
+
+  // Auto-slide cada 4 segundos
+  setInterval(nextSlide, 4000);
+
+</script>
+
+<script src="assets/js/menu.js" defer></script>
+<script src="assets/js/favorites.js" defer></script>
+<script src="mobile-menu.js" defer></script>
+
+
+
+</body>
+</html>

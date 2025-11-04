@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>FAQs - ArtCosmos</title>
+  <link rel="stylesheet" href="assets/css/style.css" />
+  <style>
+    body {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .main-content {
+      flex: 1;
+    }
+
+    .faq-section {
+      max-width: 800px;
+      margin: 80px auto;
+      padding: 0 20px;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    .faq-title {
+      text-align: center;
+      font-size: 32px;
+      margin-bottom: 40px;
+    }
+
+    .faq-search {
+      text-align: center;
+      margin-bottom: 30px;
+    }
+
+    .faq-search input {
+      padding: 12px 20px;
+      width: 80%;
+      max-width: 500px;
+      border: 1px solid #ccc;
+      border-radius: 25px;
+      font-size: 16px;
+      outline: none;
+    }
+
+    .faq-group-title {
+      font-size: 24px;
+      font-weight: 700;
+      margin: 40px 0 15px;
+      color: #222;
+    }
+
+    .faq-item {
+      border-bottom: 1px solid #ddd;
+    }
+
+    .faq-question {
+      background: none;
+      border: none;
+      width: 100%;
+      text-align: left;
+      padding: 18px 0;
+      font-size: 18px;
+      font-weight: 500;
+      cursor: pointer;
+      position: relative;
+      color: #333;
+    }
+
+    .faq-question.active::after {
+      transform: translateY(-50%) rotate(180deg);
+    }
+
+    .faq-answer {
+      display: none;
+      padding-bottom: 18px;
+      font-size: 16px;
+      color: #555;
+      line-height: 1.6;
+    }
+
+    .faq-question:hover {
+      color: rgb(0, 0, 0);
+    }
+  </style>
+</head>
+<body>
+  <!-- Header -->
+  <div id="header"></div>
+
+  <main class="main-content">
+    <!-- FAQ Section -->
+    <section class="faq-section">
+      <h1 class="faq-title">Frequently Asked Questions</h1>
+
+      <!-- Search bar -->
+      <div class="faq-search">
+        <input type="text" id="faqSearchInput" placeholder="Search questions..." />
+      </div>
+
+      <!-- Group 1 -->
+      <div class="faq-group-title">Where to Buy & Book Formats</div>
+
+      <div class="faq-item">
+        <button class="faq-question">1. Where can I buy Art Cosmos books?</button>
+        <div class="faq-answer">You can find them on Amazon, Etsy, or through our Beacons link with all quick access options.</div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question">2. In what formats are they available?</button>
+        <div class="faq-answer">We offer physical books and digital versions ready to print or use in coloring apps.</div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question">3. How do I choose the right book for me?</button>
+        <div class="faq-answer">Each collection has a different theme and difficulty. From beginners to advanced artists—there's a book for every level!</div>
+      </div>
+
+      <!-- Group 2 -->
+      <div class="faq-group-title">Coloring Materials & Tips</div>
+
+      <div class="faq-item">
+        <button class="faq-question">4. What coloring tools can I use?</button>
+        <div class="faq-answer">Our books work well with colored pencils, markers, and watercolors. Digital books can also be used with iPad or tablets.</div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question">5. Does the paper support markers or watercolors?</button>
+        <div class="faq-answer">Yes, but we recommend placing a sheet underneath to protect the next page, especially when using alcohol markers.</div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question">6. Are the books suitable for all ages?</button>
+        <div class="faq-answer">Yes, we offer kids’ books, teen-friendly editions, and relaxing books for adults too.</div>
+      </div>
+
+      <!-- Group 3 -->
+      <div class="faq-group-title">Interactive Activities</div>
+
+      <div class="faq-item">
+        <button class="faq-question">7. What kind of activities are included at the end of the books?</button>
+        <div class="faq-answer">Many of our books include fun activities such as mazes, crosswords, word searches, and visual puzzles.</div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question">8. Are the activities for kids or adults?</button>
+        <div class="faq-answer">They are suitable for all ages—designed to relax and inspire creativity after coloring.</div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question">9. Can I photocopy the activities to repeat them?</button>
+        <div class="faq-answer">Yes, if the book is yours, you can print or copy the pages for personal use.</div>
+      </div>
+
+      <!-- Group 4 -->
+      <div class="faq-group-title">Digital Download & Usage</div>
+
+      <div class="faq-item">
+        <button class="faq-question">10. How do I receive my digital books?</button>
+        <div class="faq-answer">You’ll receive a PDF file immediately after purchase via Etsy or Beacons.</div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question">11. What paper should I use for printing?</button>
+        <div class="faq-answer">We recommend white paper with at least 90–120 gsm for the best color results.</div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question">12. Can I use the pages in a coloring app?</button>
+        <div class="faq-answer">Yes! Just import the PDF into apps like Procreate, Pigment, or Adobe Fresco.</div>
+      </div>
+
+      <!-- Group 5 -->
+      <div class="faq-group-title">When You Don’t Feel Creative</div>
+
+      <div class="faq-item">
+        <button class="faq-question">13. What if I don’t know how to color?</button>
+        <div class="faq-answer">You don’t need to be an artist. There are no mistakes—just creative expression!</div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question">14. What if I get tired or frustrated?</button>
+        <div class="faq-answer">Coloring isn’t a race. You can stop and come back whenever you want. Your book has no deadline!</div>
+      </div>
+
+      <!-- Group 6 -->
+      <div class="faq-group-title">Contact Us</div>
+
+      <div class="faq-item">
+        <div class="faq-answer" style="display:block;">
+          Contact us at: <strong>artcosmoscoloring@gmail.com</strong><br>
+          Follow us on Instagram / TikTok: <strong>@artcosmoscoloring</strong>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <div id="footer"></div>
+
+  <script src="loadComponents.js" defer></script>
+  <script>
+    // Toggle FAQs
+    document.querySelectorAll('.faq-question').forEach(button => {
+      button.addEventListener('click', () => {
+        const answer = button.nextElementSibling;
+        const isActive = button.classList.contains('active');
+
+        document.querySelectorAll('.faq-answer').forEach(a => a.style.display = 'none');
+        document.querySelectorAll('.faq-question').forEach(b => b.classList.remove('active'));
+
+        if (!isActive) {
+          button.classList.add('active');
+          answer.style.display = 'block';
+        }
+      });
+    });
+
+    // Search functionality
+    document.getElementById('faqSearchInput').addEventListener('input', function () {
+      const query = this.value.toLowerCase();
+      document.querySelectorAll('.faq-item').forEach(item => {
+        const question = item.querySelector('.faq-question')?.textContent.toLowerCase() || "";
+        const answer = item.querySelector('.faq-answer')?.textContent.toLowerCase() || "";
+        const match = question.includes(query) || answer.includes(query);
+        item.style.display = match ? 'block' : 'none';
+      });
+    });
+  </script>
+  <script src="loadComponents.js" defer></script>
+<script src="assets/js/menu.js" defer></script>
+<script src="assets/js/favorites.js" defer></script>
+<script src="assets/js/loadComponents.js" defer></script>
+
+
+</body>
+</html>

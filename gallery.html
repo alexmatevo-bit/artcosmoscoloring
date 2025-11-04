@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gallery - ArtCosmos</title>
+  <link rel="stylesheet" href="assets/css/style.css">
+  <style>
+    .gallery {
+      margin: 0;
+      padding: 20px 5%;
+    }
+    .collection-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 25px;
+      justify-items: center;
+    }
+    .book-card {
+      text-align: center;
+      display: none; /* todas ocultas por defecto */
+    }
+    .book-card img {
+      width: 100%;
+      max-width: 250px;
+      aspect-ratio: 1 / 1;
+      border-radius: 20px;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+      border: 2px solid black;
+    }
+    .book-card img:hover {
+      transform: scale(1.05);
+      box-shadow: 0 8px 20px rgba(0,0,0,0.25);
+    }
+    .view-more-container {
+      text-align: center;
+      margin-top: 30px;
+    }
+    .view-more-btn {
+      background-color: #f5e4d7; /* beige */
+      color: black;
+      padding: 12px 30px;
+      font-size: 16px;
+      font-weight: bold;
+      border: none;
+      border-radius: 25px;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+    .view-more-btn:hover {
+      background-color: #e3d1c4;
+    }
+  </style>
+</head>
+<body>
+
+<!-- Header dinámico -->
+<div id="header"></div>
+
+<!-- ======== GALERÍA ======== -->
+<section class="gallery full-section">
+  <div class="collection-grid" id="gallery-grid">
+    <!-- Aquí van todas las imágenes (hasta 100 si quieres) -->
+<div class="book-card">
+  <img src="assets/img/gallery/1.jpg"
+       alt="Arctic Adventures"
+       data-link="book.html?slug=arctic-adventures">
+</div>    <div class="book-card"><img src="assets/img/gallery/2.jpg" alt="Summer Splash" data-link="book.html?slug=summer-splash"></div>
+    <div class="book-card"><img src="assets/img/gallery/3.jpg" alt="Cute & Cuddly Capybaras" data-link="book.html?slug=cute-and-cuddly-capybaras"></div>
+    <div class="book-card"><img src="assets/img/gallery/4.jpg" alt="Animals In The City" data-link="book.html?slug=animals-in-the-city"></div>
+    <div class="book-card"><img src="assets/img/gallery/5.jpg" alt="Color & Travel" data-link="book.html?slug=color-and-travel"></div>
+<div class="book-card">
+  <img src="assets/img/gallery/6.jpg"
+       alt="Leo's Adventures in Rome"
+       data-link="book.html?slug=leos-advetnures-in-rome">
+</div>
+    <div class="book-card"><img src="assets/img/gallery/7.jpg" alt="Cuddle Animals" data-link="book.html?slug=cuddle-animals"></div>
+    <div class="book-card"><img src="assets/img/gallery/8.jpg" alt="Space Explorers" data-link="book.html?slug=space-explorers"></div>
+    <div class="book-card"><img src="assets/img/gallery/9.jpg" alt="Metal Beasts" data-link="book.html?slug=metal-beasts"></div>
+    <div class="book-card"><img src="assets/img/gallery/10.jpg" alt="The New Era Jurassic Tek" data-link="book.html?slug=the-new-era-jurassic-tek"></div>
+    <div class="book-card"><img src="assets/img/gallery/11.jpg" alt="Color With Hana" data-link="book.html?slug=color-with-hana"></div>
+    <div class="book-card"><img src="assets/img/gallery/12.jpg" alt="Planet Animal" data-link="book.html?slug=planet-animal"></div>
+    <div class="book-card"><img src="assets/img/gallery/13.jpg" alt="Capybaras Around The World" data-link="book.html?slug=capybaras-around-the-world"></div>
+    <div class="book-card"><img src="assets/img/gallery/14.jpg" alt="Arctic Adventures" data-link="book.html?slug=arctic-adventures"></div>
+    <div class="book-card"><img src="assets/img/gallery/15.jpg" alt="Madness of animal kingdom" data-link="book.html?slug=madness-of-animal-kingdom"></div>
+    <div class="book-card"><img src="assets/img/gallery/16.jpg" alt="Color & Travel" data-link="book.html?slug=color-and-travel"></div>
+    <div class="book-card"><img src="assets/img/gallery/17.jpg" alt="Bug Town" data-link="book.html?slug=bug-town"></div>
+    <div class="book-card"><img src="assets/img/gallery/18.jpg" alt="Wildlife In The City" data-link="book.html?slug=wildlife-in-the-city"></div>
+    <div class="book-card"><img src="assets/img/gallery/19.jpg" alt="Cute & Cuddly Capybaras II" data-link="book.html?slug=cute-and-cuddly-capybarasII"></div>
+    <div class="book-card"><img src="assets/img/gallery/20.jpg" alt="Color With Roxie" data-link="book.html?slug=coloring-with-roxie"></div>
+    <div class="book-card"><img src="assets/img/gallery/21.jpg" alt="Gooblin Lost In Space" data-link="book.html?slug=goblin-lost-in-space"></div>
+    <div class="book-card"><img src="assets/img/gallery/22.jpg" alt="Monster Trucks" data-link="book.html?slug=monster-trucks"></div>
+    <div class="book-card"><img src="assets/img/gallery/23.jpg" alt="Summer Splash" data-link="book.html?slug=summer-splash"></div>
+    <div class="book-card"><img src="assets/img/gallery/24.jpg" alt="Fun In The Park Animals Adventures" data-link="book.html?slug=fun-in-the-park-animals-adventures"></div>
+    <div class="book-card"><img src="assets/img/gallery/25.jpg" alt="Dogs Vs Cats Board Games" data-link="book.html?slug=dogs-vs-cats-board-games"></div>
+    <div class="book-card"><img src="assets/img/gallery/26.jpg" alt="Goblins At The Theme Park" data-link="book.html?slug=goblins-at-the-theme-park"></div>
+    <div class="book-card"><img src="assets/img/gallery/27.jpg" alt="Behind the scenes of a vlogger's life" data-link="book.html?slug=behind-the-scenes-of-a-vloggers-life"></div>
+    <div class="book-card"><img src="assets/img/gallery/28.jpg" alt="Gallery Image 28"></div>
+    <div class="book-card"><img src="assets/img/gallery/29.jpg" alt="A Day With The Capybaras" data-link="book.html?slug=a-day-with-the-capybaras"></div>
+    <div class="book-card"><img src="assets/img/gallery/30.jpg" alt="The Secret Life Of Goblins" data-link="book.html?slug=the-secret-life-of-goblins"></div>
+    <div class="book-card"><img src="assets/img/gallery/31.jpg" alt="Fun In The Park Animals Adventures" data-link="book.html?slug=fun-in-the-park-animals-adventures"></div>
+    <div class="book-card"><img src="assets/img/gallery/32.jpg" alt="Agent Secret Origins 1" data-link="book.html?slug=agent-secret-origins"></div>
+    <div class="book-card"><img src="assets/img/gallery/33.jpg" alt="Madness of animal kingdom" data-link="book.html?slug=madness-of-animal-kingdom"></div>
+    <div class="book-card"><img src="assets/img/gallery/34.jpg" alt="Color With Hana" data-link="book.html?slug=color-with-hana"></div>
+    <div class="book-card"><img src="assets/img/gallery/35.jpg" alt="Exomech" data-link="book.html?slug=exomech"></div>
+    <div class="book-card"><img src="assets/img/gallery/36.jpg" alt="The SuperDog Multiverse" data-link="book.html?slug=the-superdog-multiverse"></div>
+    <div class="book-card"><img src="assets/img/gallery/37.jpg" alt="Goblins In WaterWorld" data-link="book.html?slug=goblins-in-waterworld"></div>
+    <div class="book-card"><img src="assets/img/gallery/38.jpg" alt="Play In Summer" data-link="book.html?slug=play-in-summer"></div>
+    <div class="book-card"><img src="assets/img/gallery/39.jpg" alt="Madness of animal kingdom" data-link="book.html?slug=madness-of-animal-kingdom"></div>
+    <div class="book-card"><img src="assets/img/gallery/40.jpg" alt="Flying Driving & Sailing" data-link="book.html?slug=flying-driving-and-sailing"></div>
+    <div class="book-card"><img src="assets/img/gallery/41.jpg" alt="Under The Sea" data-link="book.html?slug=under-the-sea"></div>
+    <div class="book-card"><img src="assets/img/gallery/42.jpg" alt="Busy Birds" data-link="book.html?slug=busy-birds"></div>
+    <div class="book-card"><img src="assets/img/gallery/43.jpg" alt="Ant Adventures" data-link="book.html?slug=ant-adventures"></div>
+    <div class="book-card"><img src="assets/img/gallery/44.jpg" alt="Fun In The Forest" data-link="book.html?slug=fun-in-the-forest"></div>
+    <div class="book-card"><img src="assets/img/gallery/45.jpg" alt="Explore The Ocean" data-link="book.html?slug=explore-the-ocean"></div>
+    <div class="book-card"><img src="assets/img/gallery/46.jpg" alt="Explore The Ocean" data-link="book.html?slug=explore-the-ocean"></div>
+    <div class="book-card"><img src="assets/img/gallery/47.jpg" alt="My Best Friend Matilda" data-link="book.html?slug=my-best-friend-matilda"></div>
+    <div class="book-card"><img src="assets/img/gallery/48.jpg" alt="Behind the scenes of a vlogger's life" data-link="book.html?slug=behind-the-scenes-of-a-vloggers-life"></div>
+    <div class="book-card"><img src="assets/img/gallery/49.jpg" alt="Cute & Cuddly Capybaras" data-link="book.html?slug=cute-and-cuddly-capybaras"></div>
+    <div class="book-card"><img src="assets/img/gallery/50.jpg" alt="Goblins At The Beach" data-link="book.html?slug=goblins-at-the-beach"></div>
+    <div class="book-card"><img src="assets/img/gallery/51.jpg" alt="Goblins In WaterWorld" data-link="book.html?slug=goblins-in-waterworld"></div>
+    <div class="book-card"><img src="assets/img/gallery/52.jpg" alt="Pixel Art Animals" data-link="book.html?slug=pixel-art-animals"></div>
+    <div class="book-card"><img src="assets/img/gallery/53.jpg" alt="The Secret Life Of Goblins II" data-link="book.html?slug=the-secret-life-of-goblins-ii"></div>
+    <div class="book-card"><img src="assets/img/gallery/54.jpg" alt="Planet Animal" data-link="book.html?slug=planet-animal"></div>
+    <div class="book-card"><img src="assets/img/gallery/55.jpg" alt="A day in the life of Little Witch" data-link="book.html?slug=a-day-in-the-life-of-little-witch"></div>
+    <div class="book-card"><img src="assets/img/gallery/56.jpg" alt="The SuperDog Multiverse" data-link="book.html?slug=the-superdog-multiverse"></div>
+    <div class="book-card"><img src="assets/img/gallery/57.jpg" alt="A Day With The Capybaras" data-link="book.html?slug=a-day-with-the-capybaras"></div>
+    <div class="book-card"><img src="assets/img/gallery/58.jpg" alt="My Best Friend Matilda" data-link="book.html?slug=my-best-friend-matilda"></div>
+    <div class="book-card"><img src="assets/img/gallery/59.jpg" alt="Goblins At The Beach" data-link="book.html?slug=goblins-at-the-beach"></div>
+    <div class="book-card"><img src="assets/img/gallery/60.jpg" alt="Madness of animal kingdom" data-link="book.html?slug=madness-of-animal-kingdom"></div>
+    <div class="book-card"><img src="assets/img/gallery/61.jpg" alt="Flying Driving & Sailing" data-link="book.html?slug=flying-driving-and-sailing"></div>
+    <div class="book-card"><img src="assets/img/gallery/62.jpg" alt="Capybaras Around The World" data-link="book.html?slug=capybaras-around-the-world"></div>
+    <div class="book-card"><img src="assets/img/gallery/63.jpg" alt="Goblins In Mystic Forest" data-link="book.html?slug=goblins-in-mystic-forest"></div>
+    <div class="book-card"><img src="assets/img/gallery/64.jpg" alt="Goblins At The Beach" data-link="book.html?slug=goblins-at-the-beach"></div>
+    <div class="book-card"><img src="assets/img/gallery/65.jpg" alt="Pixel Baby Animals" data-link="book.html?slug=pixel-baby-animals"></div>
+    <div class="book-card"><img src="assets/img/gallery/66.jpg" alt="Timeless Treasures" data-link="book.html?slug=timeless-treasures"></div>
+    <div class="book-card"><img src="assets/img/gallery/67.jpg" alt="Woof" data-link="book.html?slug=woof"></div>
+    <div class="book-card"><img src="assets/img/gallery/68.jpg" alt="Color Your Classroom" data-link="book.html?slug=color-your-classroom"></div>
+    <div class="book-card"><img src="assets/img/gallery/69.jpg" alt="Choco Sweets" data-link="book.html?slug=choco-sweets"></div>
+    <div class="book-card"><img src="assets/img/gallery/70.jpg" alt="Cuddle Animals II" data-link="book.html?slug=cuddle-animalsII"></div>
+    <div class="book-card"><img src="assets/img/gallery/71.jpg" alt="Color & GO" data-link="book.html?slug=color-and-go"></div>
+    <div class="book-card"><img src="assets/img/gallery/72.jpg" alt="Sweet Makes Me Happy" data-link="book.html?slug=sweet-makes-me-happy"></div>
+    <div class="book-card"><img src="assets/img/gallery/73.jpg" alt="Realistic Food" data-link="book.html?slug=realistic-food"></div>
+    <div class="book-card"><img src="assets/img/gallery/74.jpg" alt="Woof" data-link="book.html?slug=woof"></div>
+    <div class="book-card"><img src="assets/img/gallery/75.jpg" alt="Gooblin Invaision Discovering The Human World" data-link="book.html?slug=goblin-invasion-discovering-the-human-world"></div>
+    <div class="book-card"><img src="assets/img/gallery/76.jpg" alt="Timeless Treasures" data-link="book.html?slug=timeless-treasures"></div>
+    <div class="book-card"><img src="assets/img/gallery/77.jpg" alt="Choco Craft World" data-link="book.html?slug=choco-craft-world"></div>
+    <div class="book-card"><img src="assets/img/gallery/78.jpg" alt="Choco Sweets" data-link="book.html?slug=choco-sweets"></div>
+    <div class="book-card"><img src="assets/img/gallery/79.jpg" alt="Cute & Cuddly Capybaras" data-link="book.html?slug=cute-and-cuddly-capybaras"></div>
+    <div class="book-card"><img src="assets/img/gallery/80.jpg" alt="Sweet Makes Me Happy" data-link="book.html?slug=sweet-makes-me-happy"></div>
+    <div class="book-card"><img src="assets/img/gallery/81.jpg" alt="Flying Driving & Sailing" data-link="book.html?slug=flying-driving-and-sailing"></div>
+    <div class="book-card"><img src="assets/img/gallery/82.jpg" alt="Let's Color Technology" data-link="book.html?slug=lets-color-technology"></div>
+    <div class="book-card"><img src="assets/img/gallery/83.jpg" alt="Cuddle Animals II" data-link="book.html?slug=cuddle-animalsII"></div>
+    <div class="book-card"><img src="assets/img/gallery/84.jpg" alt="Goblins At The Beach" data-link="book.html?slug=goblins-at-the-beach"></div>
+    <div class="book-card"><img src="assets/img/gallery/85.jpg" alt="Choco Sweets" data-link="book.html?slug=choco-sweets"></div>
+    <div class="book-card"><img src="assets/img/gallery/86.jpg" alt="Gooblin Invaision Discovering The Human World" data-link="book.html?slug=goblin-invasion-discovering-the-human-world"></div>
+    <div class="book-card"><img src="assets/img/gallery/87.jpg" alt="Cuddle Animals" data-link="book.html?slug=cuddle-animals"></div>
+    <div class="book-card"><img src="assets/img/gallery/88.jpg" alt="Cute & Cuddly Capybaras II" data-link="book.html?slug=cute-and-cuddly-capybarasII"></div>
+    <div class="book-card"><img src="assets/img/gallery/89.jpg" alt="Choco Sweets" data-link="book.html?slug=choco-sweets"></div>
+    <div class="book-card"><img src="assets/img/gallery/90.jpg" alt="Pixel Baby Animals II" data-link="book.html?slug=pixel-baby-animals-II"></div>
+    <div class="book-card"><img src="assets/img/gallery/91.jpg" alt="Choco Sweets" data-link="book.html?slug=choco-sweets"></div>
+    <div class="book-card"><img src="assets/img/gallery/92.jpg" alt="Technology Through The Ages" data-link="book.html?slug=technology-through-the-ages"></div>
+    <div class="book-card"><img src="assets/img/gallery/93.jpg" alt="Cuddle Animals II" data-link="book.html?slug=cuddle-animalsII"></div>
+    <div class="book-card"><img src="assets/img/gallery/94.jpg" alt="Sweet Makes Me Happy" data-link="book.html?slug=sweet-makes-me-happy"></div>
+    <div class="book-card"><img src="assets/img/gallery/95.jpg" alt="Medical Tools" data-link="book.html?slug=medical-tools"></div>
+    
+    <!-- 👉 sigue hasta gallery100.jpg -->
+  </div>
+
+  <!-- Botón "View More" -->
+  <div class="view-more-container">
+    <button class="view-more-btn" id="view-more-btn">View More</button>
+  </div>
+</section>
+
+<!-- Footer dinámico -->
+<div id="footer"></div>
+
+<!-- Scripts -->
+<script src="assets/js/menu.js" defer></script>
+<script src="assets/js/favorites.js" defer></script>
+<script src="assets/js/loadComponents.js" defer></script>
+
+<script>
+  // Mostrar imágenes progresivamente
+  const cards = document.querySelectorAll(".book-card");
+  const btn = document.getElementById("view-more-btn");
+  let index = 0;
+  const step = 12; // cuántas mostrar cada vez
+
+  function showImages() {
+    for (let i = index; i < index + step && i < cards.length; i++) {
+      cards[i].style.display = "block";
+    }
+    index += step;
+    if (index >= cards.length) {
+      btn.style.display = "none"; // esconder botón cuando ya no hay más
+    }
+  }
+
+  // Inicial: mostrar las primeras 12
+  showImages();
+
+  // Evento del botón
+  btn.addEventListener("click", showImages);
+</script>
+
+<!-- Header + Footer dinámicos -->
+<script>
+  fetch("header.html")
+    .then(res => res.text())
+    .then(data => {
+      document.getElementById("header").innerHTML = data;
+    });
+
+  fetch("footer.html")
+    .then(res => res.text())
+    .then(data => {
+      document.getElementById("footer").innerHTML = data;
+    });
+</script>
+<!-- ======== LIGHTBOX ======== -->
+<div class="lightbox" id="lightbox">
+  <span class="close" id="closeBtn">&times;</span>
+  <span class="arrow left" id="prev">&#10094;</span>
+  <img id="lightboxImg" src="" data-link="">
+  <span class="arrow right" id="next">&#10095;</span>
+</div>
+
+<style>
+/* Lightbox */
+.lightbox {
+  display: none;
+  position: fixed;
+  z-index: 9999;
+  left: 0; top: 0;
+  width: 100%; height: 100%;
+  background: rgba(0,0,0,0.8);
+  justify-content: center;
+  align-items: center;
+}
+.lightbox.active { display: flex; }
+.lightbox img {
+  max-width: 90%;
+  max-height: 80%;
+  border-radius: 20px;
+  cursor: pointer;
+}
+/* Botón cerrar */
+.close {
+  position: absolute;
+  top: 20px; right: 30px;
+  font-size: 40px;
+  font-weight: bold;
+  color: white;
+  cursor: pointer;
+}
+/* Flechas */
+.arrow {
+  position: absolute;
+  top: 50%;
+  font-size: 60px;
+  font-weight: bold;
+  color: white;
+  cursor: pointer;
+  user-select: none;
+}
+.arrow.left { left: 20px; }
+.arrow.right { right: 20px; }
+</style>
+
+<script>
+const images = document.querySelectorAll('.book-card img');
+const lightbox = document.getElementById('lightbox');
+const lightboxImg = document.getElementById('lightboxImg');
+const closeBtn = document.getElementById('closeBtn');
+const prevBtn = document.getElementById('prev');
+const nextBtn = document.getElementById('next');
+
+let currentIndex = 0;
+
+// Mostrar imagen en lightbox
+function showImage(index) {
+  const img = images[index];
+  lightboxImg.src = img.src;
+  lightboxImg.setAttribute("data-link", img.dataset.link || "#");
+  currentIndex = index;
+  lightbox.classList.add('active');
+}
+
+// Abrir lightbox
+images.forEach((img, index) => {
+  img.addEventListener('click', () => showImage(index));
+});
+
+// Cerrar con la ❌
+closeBtn.addEventListener('click', () => lightbox.classList.remove('active'));
+
+// Cerrar clicando fuera
+lightbox.addEventListener('click', (e) => {
+  if (e.target === lightbox) lightbox.classList.remove('active');
+});
+
+// Flechas
+prevBtn.addEventListener('click', () => {
+  showImage((currentIndex - 1 + images.length) % images.length);
+});
+nextBtn.addEventListener('click', () => {
+  showImage((currentIndex + 1) % images.length);
+});
+
+// Clic en imagen grande → ir a la libreta en la misma pestaña
+lightboxImg.addEventListener('click', () => {
+  const link = lightboxImg.getAttribute('data-link');
+  if (link && link !== '#') {
+    window.location.href = link;  // ← en vez de window.open(..., "_blank")
+  }
+});
+
+
+// Navegación teclado
+document.addEventListener('keydown', (e) => {
+  if (!lightbox.classList.contains('active')) return;
+  if (e.key === 'ArrowLeft') prevBtn.click();
+  if (e.key === 'ArrowRight') nextBtn.click();
+  if (e.key === 'Escape') closeBtn.click();
+});
+
+// Swipe en móvil/tablet
+let startX = 0;
+lightboxImg.addEventListener('touchstart', (e) => startX = e.touches[0].clientX);
+lightboxImg.addEventListener('touchend', (e) => {
+  let endX = e.changedTouches[0].clientX;
+  if (startX - endX > 50) nextBtn.click(); // deslizar izquierda
+  if (endX - startX > 50) prevBtn.click(); // deslizar derecha
+});
+</script>
+
+</body>
+</html>

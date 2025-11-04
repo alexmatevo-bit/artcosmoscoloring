@@ -1,0 +1,3668 @@
+/* ======== General ======== */
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+
+a {
+  text-decoration: none;
+  color: #333;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+/* ======== HEADER ======== */
+
+/* ======== HEADER ======== */
+
+/* Logo arriba que sube con el scroll */
+.logo-container {
+  text-align: center;
+  background-color: white;
+}
+
+.logo-center {
+  font-size: 50px;
+  font-weight: 300;
+  padding: 30px 0 10px 0;
+}
+
+/* Menú sticky */
+.sticky-menu {
+  position: sticky;
+  top: 0;
+  background-color: white;
+  z-index: 1000;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.sticky-menu .menu {
+  display: flex;
+  justify-content: center;
+  gap: 50px;
+  list-style: none;
+  padding: 15px 0;
+  margin: 0;
+}
+
+.sticky-menu .menu li a {
+  font-size: 22px;
+  text-decoration: none;
+  color: black;
+  transition: 0.3s;
+}
+
+.sticky-menu .menu li a:hover {
+  color: rgb(255, 183, 221);
+}
+
+/* 🔹 Pegado al hacer scroll */
+.sticky-fixed {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 1000;
+  background-color: white;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+/* ======== Hero Section ======== */
+.hero {
+  text-align: center;
+  padding: 60px 20px;
+  background-color: #fdf5f7;
+}
+
+.hero h1 {
+  font-size: 36px;
+  margin-bottom: 10px;
+}
+
+.hero p {
+  font-size: 18px;
+  margin-bottom: 20px;
+}
+
+.hero .btn {
+  background-color: #ffbabb;
+  color: white;
+  padding: 10px 20px;
+  border-radius: 5px;
+  font-weight: bold;
+}
+
+.hero .btn:hover {
+  background-color: hotpink;
+}
+
+/* ======== Grid de Libros ======== */
+.collection-grid {
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+  flex-wrap: wrap;
+  padding: 40px 20px;
+}
+
+.book-card {
+  text-align: center;
+  width: 200px;
+}
+
+.book-card img {
+  width: 100%;
+  border-radius: 8px;
+  margin-bottom: 10px;
+}
+
+
+/* ======== Secciones grandes ======== */
+.full-section {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 40px 20px;
+}
+
+.hero {
+  background: #fdf5f7;
+}
+
+.featured {
+  background: #ffffff;
+}
+
+.featured h2 {
+  margin-bottom: 30px;
+}
+
+.about-section {
+  background: #f9f9f9;
+}
+
+.about-section p {
+  max-width: 600px;
+  margin-bottom: 20px;
+}
+
+.gallery-section {
+  background: #ffffff;
+}
+
+.gallery-section .gallery-img {
+  width: 200px;
+  margin: 10px;
+  border-radius: 10px;
+}
+
+/* Botón principal */
+.btn {
+  display: inline-block;
+  padding: 12px 25px;
+  background-color: deeppink;
+  color: white;
+  border-radius: 5px;
+  font-weight: bold;
+  margin-top: 15px;
+  transition: 0.3s;
+}
+
+.btn:hover {
+  background-color: hotpink;
+}
+
+/* Contenedor superior */
+.header-top {
+  position: relative;
+  width: 100%;
+  display: flex;
+  justify-content: center; /* centra el logo */
+  align-items: center;
+  padding: 20px 0;
+  background-color: white;
+}
+
+/* Logo centrado */
+.logo-center {
+  font-size: 50px;
+  font-weight: 300;
+}
+
+/* Buscador arriba a la derecha */
+.search-box {
+  position: absolute;
+  left: 80px;
+  top: 62%;
+  transform: translateY(-50%);
+}
+
+.search-box input {
+  padding: 8px 35px 8px 15px; /* espacio a la derecha para la lupa */
+  border-radius: 20px;
+  border: 1px solid #ccc;
+  outline: none;
+  font-size: 18px;
+  width: 250px;
+  background-color: #f5f5f5;
+
+  background-image: url('../img/lupa.png'); /* usa tu imagen aquí */
+  background-repeat: no-repeat;
+  background-position: right 12px center; /* lupa a la derecha */
+  background-size: 30px; /* ajusta tamaño de la lupa */
+}
+
+
+.search-box input::placeholder {
+  color: #999;
+}
+
+
+.search-box button {
+  background: none;
+  border: none;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+
+/* ================= FOOTER ================= */
+
+/* Fondo del footer: imagen personalizada */
+footer.custom-footer {
+  position: relative;
+  background-color: #fff9e6;
+  padding-top: 0px;   /* espacio arriba del contenido */
+  padding-bottom: 40px;
+  text-align: center;
+  overflow: hidden;
+}
+
+footer.custom-footer::before {
+  content: "";
+  position: absolute;
+  top: -80px;         /* sube la ola para que tape la unión */
+  left: 0;
+  width: 100%;
+  height: 200px;      /* más alto para cubrir mejor */
+  background: url("assets/img/footer-wave.png") repeat-x;
+  background-size: cover;
+  z-index: 0;
+}
+
+footer.custom-footer > * {
+  position: relative;
+  z-index: 1; /* contenido por encima de la ola */
+}
+
+
+
+
+
+
+/* Contenedor principal */
+.footer-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 40px;
+  flex-wrap: wrap;
+  
+  position: relative;   /* 👈 NUEVO */
+  z-index: 2;           /* 👈 asegura que el contenido vaya por encima de la ola */
+}
+
+
+/* ========== FOOTER IZQUIERDA ========== */
+.footer-left {
+  text-align: center;
+}
+
+.footer-main-logo {
+  width: 180px;
+  border-radius: 50%;
+  margin-bottom: 15px;
+  display: block;
+  margin-left: -30px;
+  margin-right: auto;
+}
+
+.socials {
+  display: flex;
+  justify-content: center;
+  gap: 14px;
+  margin-top: 8px;
+  margin-left: -72px;
+}
+
+.socials img {
+  width: 40px;
+  height: 40px;
+  filter: grayscale(100%);
+  transition: 0.3s;
+}
+
+.socials img:hover {
+  filter: none;
+  transform: scale(1.1);
+}
+
+/* ========== FOOTER DERECHA ========== */
+.footer-right {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 60px;
+  width: 70%;
+  margin: 0 auto;
+}
+
+.footer-column {
+  text-align: center;
+}
+
+.footer-column h4 {
+  font-size: 20px;
+  text-decoration: underline;
+  margin-bottom: 12px;
+  font-weight: bold;
+}
+
+.footer-column ul,
+.footer-column p {
+  text-align: center;
+}
+
+.footer-column ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.footer-column ul li {
+  margin-bottom: 6px;
+}
+
+.footer-column ul li a {
+  color: #000;
+  text-decoration: none;
+}
+
+.footer-column ul li a:hover {
+  color: deeppink;
+}
+
+/* COPYRIGHT */
+.footer-bottom {
+  text-align: center;
+  margin-top: 30px;
+  font-size: 14px;
+  opacity: 0.8;
+}
+
+
+
+/* COPYRIGHT */
+.footer-bottom {
+  text-align: center;
+  font-size: 15px;
+  color: #555;
+  margin-top: 15px;
+}
+
+/* ======== Tamaños individuales de iconos sociales ======== */
+.icon-facebook {
+  width: 40px;
+  height: 40px;
+}
+
+.icon-instagram {
+  width: 40px;
+  height: 40px;
+}
+
+.icon-pinterest {
+  width: 40px;
+  height: 40px;
+}
+
+.icon-tiktok {
+  width: 40px; /* 🔹 ejemplo: más grande */
+  height: 40px;
+}
+
+.icon-youtube {
+  width: 40px;
+  height: 40px;
+}
+
+/* ======== SLIDER ======== */
+.slider-section {
+  background-color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+}
+
+.slider-container {
+  position: relative;
+  width: 100%;
+  max-width: 1200px;
+  
+}
+
+.slide {
+  display: none;
+  width: 100%;
+}
+
+.slide img {
+  width: 100%;
+  display: block;
+  border-radius: 10px;
+}
+
+/* Flechas de navegación */
+.prev, .next {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: rgba(0, 0, 0, 0.5);
+  color: white;
+  border: none;
+  font-size: 30px;
+  padding: 10px;
+  cursor: pointer;
+  border-radius: 50%;
+  transition: 0.3s;
+}
+
+.prev:hover, .next:hover {
+  background-color: rgba(0, 0, 0, 0.8);
+}
+
+.prev {
+  left: 15px;
+}
+
+.next {
+  right: 15px;
+}
+
+.slide.active {
+  display: block;
+}
+
+/* ======== FAQs ======== */
+.faq-section {
+  max-width: 800px;
+  margin: 60px auto;
+  padding: 0 20px;
+  font-family: Arial, sans-serif;
+}
+
+.faq-section h2 {
+  text-align: center;
+  font-size: 32px;
+  margin-bottom: 40px;
+}
+
+.faq-item {
+  border-bottom: 1px solid #ccc;
+  padding: 15px 0;
+}
+
+.faq-question {
+  font-size: 18px;
+  font-weight: bold;
+  cursor: pointer;
+  position: relative;
+  padding-right: 30px;
+}
+
+.faq-question::after {
+  content: "";
+  background-image: url('../img/arrow-down.png'); /* ruta desde style.css */
+  background-repeat: no-repeat;
+  background-size: contain;
+  width: 14px;
+  height: 14px;
+  position: absolute;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  transition: transform 0.3s ease;
+}
+
+.faq-question.active::after {
+  transform: translateY(-50%) rotate(180deg); /* gira la flecha */
+}
+
+
+.faq-question.active::after {
+  transform: rotate(-180deg); /* flecha hacia arriba cuando está abierto */
+}
+
+.faq-answer {
+  display: none;
+  margin-top: 10px;
+  font-size: 16px;
+  color: #444;
+}
+
+.faq-question:hover {
+  color: deeppink;
+}
+
+/* General Layout */
+.about-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 60px 20px;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 40px;
+}
+
+/* HERO (white) */
+.about-hero {
+  background: #ffffff;
+}
+.about-hero .about-text {
+  flex: 1 1 500px;
+}
+.about-hero .about-image img {
+  width: 100%;
+  border-radius: 10px;
+}
+
+/* VALUES (beige) */
+.about-values {
+  background: #FAF5EC;
+  text-align: center;
+}
+.values-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 30px;
+  margin-top: 30px;
+}
+.value-item {
+  flex: 1 1 300px;
+  background: white;
+  padding: 20px;
+  border-radius: 10px;
+}
+.value-icon {
+  font-size: 40px;
+  margin-bottom: 10px;
+}
+.values-note {
+  margin-top: 30px;
+  font-style: italic;
+  color: #555;
+}
+
+/* STORY (blue) */
+.about-story {
+  background: #ffffff;
+  color: rgb(0, 0, 0);
+  text-align: center;
+}
+.about-story p {
+  max-width: 800px;
+  margin: 0 auto 20px;
+}
+.story-ctas {
+  margin-top: 20px;
+}
+.about-story .about-image img {
+  width: 100%;
+  margin-top: 40px;
+  border-radius: 10px;
+}
+
+/* Buttons */
+.btn-primary {
+  display: inline-block;
+  background: #6CA6D9;
+  color: white;
+  padding: 12px 24px;
+  border-radius: 5px;
+  text-decoration: none;
+  font-weight: bold;
+}
+.btn-primary:hover {
+  background: #5A94C7;
+}
+
+.btn-secondary {
+  display: inline-block;
+  background: #A7E3C2;
+  border: 2px solid #A7E3C2;
+  color: white;
+  padding: 12px 24px;
+  border-radius: 5px;
+  text-decoration: none;
+  font-weight: bold;
+  margin-right: 10px;
+}
+.btn-secondary:hover {
+  background: #92D7B3;
+  color: #ffffff;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .about-container {
+    flex-direction: column;
+    text-align: center;
+  }
+}
+
+/* ===== ABOUT: Intro (image right, text left, fixed) ===== */
+.about-hero--intro {
+  background: #ffffff;
+  min-height: 70vh;
+  display: flex;
+  align-items: center;
+}
+
+.about-hero--intro .about-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 32px;
+  flex-wrap: nowrap; /* evita que la imagen se baje */
+}
+
+.about-hero--intro .about-text {
+  flex: 1 1 45%;
+  max-width: 560px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: left;
+}
+
+.about-hero--intro h2 {
+  font-size: 32px;
+  line-height: 1.2;
+  margin-bottom: 18px;
+  color: #1A1A1A;
+}
+
+.about-hero--intro p {
+  font-size: 18px;
+  line-height: 1.7;
+  color: #333;
+  margin: 10px 0;
+}
+
+.about-hero--intro .about-image {
+  flex: 1 1 15%; /* ajusta aquí si la quieres más grande o más pequeña */
+  display: flex;
+  justify-content: center;
+}
+
+.about-hero--intro .about-image img {
+  width: 100%;
+  max-width: 90%;
+  height: auto;
+  display: block;
+  border-radius: 20px;
+}
+
+@media (max-width: 900px) {
+  .about-hero--intro { min-height: auto; }
+  .about-hero--intro .about-container {
+    flex-direction: column-reverse;
+    text-align: center;
+    gap: 24px;
+  }
+  .about-hero--intro .about-text {
+    max-width: none;
+    text-align: center;
+  }
+  .about-hero--intro .about-image {
+    justify-content: center;
+  }
+}
+
+/* ===== ABOUT: Reverse layout (image left, text right) ===== */
+.about-hero--reverse {
+  background: #ffffff; /* beige suave */
+  min-height: 70vh;
+  display: flex;
+  align-items: center;
+}
+
+.about-hero--reverse .about-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 32px;
+  flex-wrap: nowrap;
+}
+
+.about-hero--reverse .about-image {
+  flex: 1 1 45%;
+  display: flex;
+  justify-content: center;
+}
+
+.about-hero--reverse .about-image img {
+  width: 100%;
+  max-width: 90%;
+  height: auto;
+  display: block;
+  border-radius: 20px;
+}
+
+.about-hero--reverse .about-text {
+  flex: 1 1 45%;
+  max-width: 560px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: left;
+}
+
+.about-hero--reverse h2 {
+  font-size: 32px;
+  line-height: 1.2;
+  margin-bottom: 18px;
+  color: #1A1A1A;
+}
+
+.about-hero--reverse p {
+  font-size: 18px;
+  line-height: 1.7;
+  color: #333;
+  margin: 10px 0;
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+  .about-hero--reverse { min-height: auto; }
+  .about-hero--reverse .about-container {
+    flex-direction: column;
+    text-align: center;
+    gap: 24px;
+  }
+  .about-hero--reverse .about-text {
+    max-width: none;
+    text-align: center;
+  }
+  .about-hero--reverse .about-image {
+    justify-content: center;
+  }
+}
+/* ===== ABOUT: Our Story (text left, image right) ===== */
+.about-hero--story {
+  background: #ffffff; /* azul claro pastel */
+  min-height: 70vh;
+  display: flex;
+  align-items: center;
+}
+
+.about-hero--story .about-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 32px;
+  flex-wrap: nowrap;
+}
+
+.about-hero--story .about-text {
+  flex: 1 1 45%;
+  max-width: 560px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: left;
+}
+
+.about-hero--story h2 {
+  font-size: 32px;
+  line-height: 1.2;
+  margin-bottom: 18px;
+  color: #1A1A1A;
+}
+
+.about-hero--story p {
+  font-size: 18px;
+  line-height: 1.7;
+  color: #333;
+  margin: 10px 0;
+}
+
+.about-hero--story .about-image {
+  flex: 1 1 55%;
+  display: flex;
+  justify-content: center;
+}
+
+.about-hero--story .about-image img {
+  width: 100%;
+  max-width: 90%;
+  height: auto;
+  display: block;
+  border-radius: 20px;
+}
+
+@media (max-width: 900px) {
+  .about-hero--story { min-height: auto; }
+  .about-hero--story .about-container {
+    flex-direction: column-reverse;
+    text-align: center;
+    gap: 24px;
+  }
+  .about-hero--story .about-text {
+    max-width: none;
+    text-align: center;
+  }
+  .about-hero--story .about-image {
+    justify-content: center;
+  }
+}
+/* ===== Collection Carousel ===== */
+.collection-carousel { padding: 20px 0 15px; }
+.cc-head { text-align: center; margin-bottom: 20px; }
+.cc-head h2 { margin: 0 0 6px; font-size: 28px; }
+.cc-head p { color: #555; margin: 0; }
+
+/* viewport + track */
+.cc-wrapper {
+  position: relative;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+.cc-viewport {
+  overflow: hidden;
+  scroll-snap-type: x mandatory;
+}
+.cc-track {
+  display: grid;
+  grid-auto-flow: column;
+  grid-auto-columns: calc((100% - 4*16px) / 5); /* 5 cards visibles */
+  gap: 16px;
+  padding: 6px;
+  margin: 0;
+  list-style: none;
+  scroll-behavior: smooth;
+}
+.cc-card { scroll-snap-align: start; }
+.cc-card .cc-card-inner {
+  display: block;
+  background: #FFFFFF;
+  border: 1px solid #EEE;
+  border-radius: 16px;
+  box-shadow: 0 8px 20px rgba(0,0,0,.05);
+  overflow: hidden;
+  text-decoration: none;
+  color: inherit;
+  transition: transform .2s ease, box-shadow .2s ease;
+}
+.cc-card .cc-card-inner:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 28px rgba(0,0,0,.08);
+}
+.cc-card img {
+  width: 100%;
+  aspect-ratio: 3/4;      /* portadas verticales */
+  object-fit: cover;
+  display: block;
+}
+.cc-title {
+  font-size: 16px;
+  padding: 10px 12px 14px;
+  text-align: center;
+}
+
+/* nav buttons */
+.cc-nav {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  border: 0;
+  width: 44px; height: 44px;
+  border-radius: 50%;
+  background: #1F3A8A;     /* azul botón */
+  color: #fff;
+  display: grid;
+  place-items: center;
+  cursor: pointer;
+  box-shadow: 0 8px 20px rgba(31,58,138,.25);
+}
+.cc-prev { left: -10px; }
+.cc-next { right: -10px; }
+.cc-nav:disabled {
+  opacity: .4;
+  cursor: default;
+  box-shadow: none;
+}
+
+/* responsive: 3 en tablet, 2 en móvil */
+@media (max-width: 1024px) {
+  .cc-track { grid-auto-columns: calc((100% - 2*16px) / 3); }
+}
+@media (max-width: 640px) {
+  .cc-track { grid-auto-columns: calc((100% - 1*12px) / 2); gap: 12px; }
+  .cc-prev { left: -6px; } .cc-next { right: -6px; }
+}
+/* Cuadrado 1:1, la imagen no se recorta */
+.cc-card img{
+  aspect-ratio: 1 / 1;
+  object-fit: contain;
+  background: #fff;   /* o #F6F6F6 para un gris suave */
+  padding: 8px;       /* deja un margen bonito si la portada es vertical */
+}
+/* Hace que la tarjeta rellene y el contenido se distribuya en columna */
+.cc-card .cc-card-inner{
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Título con dos líneas máximo y misma altura para todas */
+.cc-title{
+  text-align: center;
+  font-size: 16px;
+  padding: 10px 12px 14px;
+  min-height: 2.8em;                    /* asegura altura uniforme ~2 líneas */
+  display: -webkit-box;
+  -webkit-line-clamp: 2;                /* máx 2 líneas */
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+/* 1) Portadas perfectamente cuadradas */
+.cc-card img{
+  display: block;
+  width: 100%;
+  aspect-ratio: 1 / 1;    /* cuadrado */
+  object-fit: cover;       /* o 'contain' si no quieres recorte */
+  border-radius: 0;        /* esquinas rectas en la imagen */
+  box-shadow: none;
+  background: #fff;        /* color de lienzo si usas 'contain' */
+}
+
+/* 2) Todas las tarjetas misma altura (título a 2 líneas máx) */
+.cc-card .cc-card-inner{
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  box-shadow: none;        /* quitamos sombra de la tarjeta */
+  border: 1px solid #EEE;  /* marco limpio */
+  border-radius: 14px;
+}
+
+.cc-title{
+  text-align: center;
+  font-size: 16px;
+  padding: 10px 12px 14px;
+  min-height: 2.8em;                  /* altura uniforme */
+  display: -webkit-box;
+  -webkit-line-clamp: 2;              /* máximo 2 líneas */
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+/* 3) Quitar sombras de las flechas y alejarlas del carrusel */
+.cc-nav{
+  box-shadow: none;        /* sin sombra */
+}
+.cc-prev{ left: -22px; }
+.cc-next{ right: -22px; }
+
+/* 4) (Opcional) Si quieres esquinas rectas también en la tarjeta: */
+/* .cc-card .cc-card-inner { border-radius: 0; } */
+/* ===== Beacons style: image + title (no card box) ===== */
+.cc-card .cc-card-inner{
+  background: transparent;
+  border: 0;
+  box-shadow: none;
+  border-radius: 0;
+  padding: 0;
+  display: block;
+  text-decoration: none;
+  color: inherit;
+}
+.cc-card .cc-card-inner:hover{ transform: none; box-shadow: none; }
+
+/* Imagen limpia (elige la relación que prefieras) */
+.cc-card img{
+  display: block;
+  width: 100%;
+  aspect-ratio: 1 / 1;   /* cuadrada; usa 3/4 si prefieres portada vertical */
+  /* aspect-ratio: 3 / 4; */
+  object-fit: cover;      /* o 'contain' si no quieres recorte */
+  border-radius: 12px;    /* pon 0 si la quieres sin esquinas redondeadas */
+  box-shadow: none;
+  background: transparent;
+  padding: 0;
+}
+
+/* Título debajo, sin caja */
+.cc-title{
+  margin-top: 10px;
+  padding: 0;
+  text-align: center;
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 1.3;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;   /* máx 2 líneas */
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+/* Asegura 5 visibles en desktop con tamaño controlado */
+.cc-track{
+  grid-auto-columns: clamp(180px, calc((100% - 4*16px)/5), 230px);
+  gap: 16px;
+}
+
+/* Flechas sin sombra */
+.cc-nav{ box-shadow: none; }
+
+.collection-carousel h3 {
+  font-size: 0.95rem;
+  text-align: center;
+  font-weight: 600;
+}
+
+/* === BUY MODULE styles === */
+.buy-module{margin:14px 0 22px}
+.lang-chooser{display:flex; gap:12px; flex-wrap:wrap}
+.lang-btn {
+  appearance:none; border:0; cursor:pointer;
+  padding:12px 20px; border-radius:999px; font-weight:800; font-size:16px;
+  background: linear-gradient(180deg,#a2d2ff,#5390d9); /* azul degradado */
+  color:#ffffff;
+  box-shadow: 0 6px 16px rgba(83,144,217,.45);
+  transition: transform .15s ease, box-shadow .15s ease, background .2s;
+}
+.lang-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 22px rgba(83,144,217,.55);
+  background: linear-gradient(180deg,#90caf9,#1976d2); /* azul más intenso */
+}
+.lang-btn.active{
+  background: linear-gradient(180deg,#5ea8ff,#1b6fd8);
+  color:#ffffff;
+  box-shadow: 0 0 0 3px rgb(0, 0, 0), 0 0 10px rgba(0, 0, 0, 0.6);
+}
+
+/* Ocultar módulo de tiendas al inicio */
+/* ✅ visible por defecto dentro del módulo de compra */
+#buyModule #stores{
+  display: block;
+  margin-top: 12px;
+  text-align: center;
+}
+
+/* ✅ solo se oculta cuando el bloque tiene el atributo hidden */
+#buyModule #stores[hidden]{
+  display: none !important;
+}
+
+
+.stores.show {
+  display: block;            /* se mostrará cuando JS agregue .show */
+}
+.stores-title{margin:8px 0 10px; color:#555}
+.flags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  justify-content: center;
+}
+
+/* Caja de bandera, sin borde por defecto */
+.flag {
+  width: 40px;
+  height: 28px;
+  padding: 0;                /* sin padding para que no deje marco */
+  border-radius: 4px;        /* bordes suaves */
+  border: none;              /* sin borde */
+  background: transparent;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  cursor: pointer;
+  transition: transform .15s ease, box-shadow .15s ease;
+}
+
+/* Ajuste de imagen */
+.flag img {
+  height: 100%;
+  width: auto;
+  display: block;
+  object-fit: contain;
+}
+
+/* Hover efecto */
+.flag:hover { 
+  transform: translateY(-2px); 
+  box-shadow: 0 6px 14px rgba(0,0,0,.15);
+}
+
+/* 🎌 Japón con borde y fondo blanco */
+.flag.jp {
+  background: white;
+  border: 1px solid #e6e6e6;
+  border-radius: 4px;
+}
+
+
+.stores-hint {
+  display: block;
+  margin-top: 10px !important; /* fuerza el espacio */
+  color: #666;
+  font-size: 13px;
+}
+
+/* === Breadcrumb === */
+.breadcrumb{
+  max-width: 1280px;
+  margin: 10px auto 14px;         /* espacio con el header y el grid */
+  padding: 0 16px;
+  font-size: 14px;
+  color: #666;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.breadcrumb a{
+  color: #3557b7;                 /* azul suave */
+  text-decoration: none;
+}
+.breadcrumb a:hover{
+  text-decoration: underline;
+}
+.breadcrumb .sep{
+  color: #aaa;
+}
+.breadcrumb .current{
+  color: #999;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 60vw;                /* evita que el título larguísimo rompa el layout */
+}
+
+/* un pelín más de aire arriba del grid de la ficha */
+.book-wrap{ margin-top: 4px; }
+
+/* ===== Carrusel Portadas Art Cosmos ===== */
+:root{
+  --ac-beige:#f6ead3;
+  --ac-ink:#1b1b1b;
+  --ac-muted:#6b6b6b;
+  --ac-radius:16px;
+  --ac-gap:20px;
+}
+
+/* Carrusel */
+.ac-covers{
+  padding: 28px 0 10px;
+  background: linear-gradient(180deg, #fff 0%, #fff7f2 100%);
+}
+.ac-covers__inner{
+  position: relative;
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 48px; /* espacio para flechas */
+}
+.ac-track{
+  display: grid;
+  grid-auto-flow: column;
+  grid-auto-columns: minmax(140px, 200px);
+  gap: 16px;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+.ac-track::-webkit-scrollbar{ display:none; }
+.ac-card{
+  scroll-snap-align: start;
+  display:block;
+  background:#fff;
+  border-radius: 12px;
+  box-shadow: 0 6px 16px rgba(0,0,0,.08);
+  overflow:hidden;
+  transition: transform .15s ease, box-shadow .2s ease;
+}
+.ac-card:hover{ transform: translateY(-2px); box-shadow:0 10px 22px rgba(0,0,0,.12); }
+.ac-card img{ display:block; width:100%; height:auto; aspect-ratio: 3/4; object-fit: cover; }
+
+/* Flechas */
+.ac-arrow{
+  position:absolute; top:50%; translate:0 -50%;
+  width:44px; height:44px; border:none; border-radius:50%;
+  background:#fff; color:#111; box-shadow:0 6px 18px rgba(0,0,0,.15);
+  display:grid; place-items:center; cursor:pointer; z-index:3;
+}
+.ac-arrow[disabled]{ opacity:.4; cursor:not-allowed; }
+.ac-arrow--left{ left:8px; }
+.ac-arrow--right{ right:8px; }
+
+/* Fades laterales */
+.ac-fade{
+  position:absolute; inset:auto 0 0 0; top:0; pointer-events:none; height:100%;
+}
+.ac-fade--left{ left:0; width:48px; background: linear-gradient(90deg, #fff 35%, rgba(255,255,255,0)); }
+.ac-fade--right{ right:0; width:48px; background: linear-gradient(270deg, #fff 35%, rgba(255,255,255,0)); }
+
+/* Responsive */
+@media (max-width: 680px){
+  .ac-covers__inner{ padding: 0 44px; }
+}
+
+/* ===== Estilo tipo CocoWyo para el carrusel de la ficha ===== */
+.ac-like { background: #fff; padding-top: 8px; padding-bottom: 34px; }
+.ac-like-title{
+  text-align:center;
+  font-size: clamp(22px, 2.4vw, 32px);
+  letter-spacing: .12em;
+  font-weight: 900;
+  margin: 8px auto 14px;
+  color: #3a2b16;
+  text-transform: uppercase;
+}
+
+#related .ac-covers__inner{ padding: 0 64px; }
+#related .ac-track{
+  grid-auto-columns: clamp(240px, 26vw, 320px);
+  gap: 28px;
+  padding: 6px 12px;
+}
+
+/* Tarjeta vertical con fondo “ondulado”, portada grande y textos debajo */
+#related .ac-card{
+  display: grid;
+  grid-template-rows: auto auto auto;
+  align-items: start;
+  text-align: center;
+  background: transparent;
+  border-radius: 0;
+  box-shadow: none;
+  transition: transform .15s ease;
+  text-decoration: none;
+  color: inherit;
+}
+#related .ac-card:hover{ transform: translateY(-3px); }
+
+/* Fondo ondulado pastel (scallop) */
+.ac-scallop{
+  position: relative;
+  border-radius: 20px;
+  padding: 18px;
+  /* “Onditas” con repeating-radial-gradient */
+  background:
+    radial-gradient(circle at 12px 12px, rgba(0,0,0,0) 12px, rgba(0,0,0,0) 13px, rgba(0,0,0,0)) 0 0/48px 48px,
+    linear-gradient(#f6e9ff, #fde9f1);
+  box-shadow: 0 12px 30px rgba(0,0,0,.08);
+}
+
+/* Marco de la portada */
+.ac-cover{
+  background:#fff;
+  border-radius: 14px;
+  padding: 10px;
+  box-shadow: 0 10px 22px rgba(0,0,0,.10);
+}
+.ac-cover img{
+  display:block;
+  width:100%;
+  height:auto;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+  border-radius: 10px;
+}
+
+/* Icono corazón decorativo (opcional, no interactivo) */
+.ac-heart{
+  position:absolute;
+  right: 14px; bottom: 14px;
+  width: 36px; height: 36px;
+  border-radius: 50%;
+  background: #fff;
+  display:grid; place-items:center;
+  box-shadow: 0 6px 16px rgba(0,0,0,.15);
+  font-size: 18px;
+  color: #e06a8b;
+}
+
+/* Título y precio */
+.ac-title{
+  margin: 12px 0 6px;
+  font-size: clamp(15px, 1.6vw, 18px);
+  font-weight: 700;
+  line-height: 1.25;
+}
+.ac-price{
+  font-size: clamp(14px, 1.5vw, 16px);
+  color: #333;
+  font-weight: 800;
+}
+
+/* Flechas más grandes y un poco “fuera” del carrusel */
+#related .ac-arrow{
+  width: 48px; height: 48px;
+  box-shadow: 0 10px 26px rgba(0,0,0,.18);
+  background: #fff;
+}
+#related .ac-arrow--left{ left: 6px; transform: translateY(-50%); }
+#related .ac-arrow--right{ right: 6px; transform: translateY(-50%); }
+
+/* Fades laterales más suaves */
+#related .ac-fade--left{ width:60px; background: linear-gradient(90deg, #fff 35%, rgba(255,255,255,0)); }
+#related .ac-fade--right{ width:60px; background: linear-gradient(270deg, #fff 35%, rgba(255,255,255,0)); }
+
+@media (max-width: 700px){
+  #related .ac-covers__inner{ padding: 0 54px; }
+  #related .ac-track{ grid-auto-columns: clamp(220px, 72vw, 280px); gap: 22px; }
+}
+.ac-like {
+  background: #fff;
+  padding-top: 8px;
+  padding-bottom: 34px;
+  position: relative;
+}
+
+.ac-like::before {
+  content: "";
+  display: block;
+  width: 110%;           /* largo de la línea */
+  max-width: 1300px;    /* o un valor fijo */
+  margin: 0 auto;       /* centrada */
+  border-top: 1px solid #ddd;
+}
+/* Tarjeta simple para ambos carruseles */
+#related .ac-card, #recent .ac-card{
+  text-decoration:none;
+  color:inherit;
+  display:grid;
+  grid-template-rows:auto auto auto;
+  align-items:start;
+  text-align:center;
+  gap:8px;
+  transition:transform .15s ease;
+}
+#related .ac-card:hover, #recent .ac-card:hover{ transform: translateY(-2px); }
+
+/* Solo la portada (sin scallop ni cover) */
+#related .ac-img, #recent .ac-img{
+  display:block;
+  width:100%;
+  height:auto;
+  aspect-ratio: 1 / 1;        /* si tus portadas son cuadradas; usa 3/4 si son verticales */
+  object-fit: cover;
+  border-radius: 14px;
+  box-shadow:none;            /* sin sombra */
+  background:#fff;
+}
+
+/* Título y precio */
+#related .ac-title, #recent .ac-title{
+  margin: 4px 0 0;
+  font-size: clamp(15px, 1.6vw, 18px);
+  font-weight: 700;
+  line-height: 1.25;
+}
+#related .ac-price, #recent .ac-price{
+  font-size: clamp(14px, 1.5vw, 16px);
+  color: #333;
+  font-weight: 800;
+}
+
+/* Ocultar elementos decorativos antiguos (por si quedaron en el DOM) */
+#related .ac-heart,
+#recent  .ac-heart,
+.ac-like  .ac-heart { display:none !important; /* ... */ }
+
+/* Quitar marco/blanco de Recently Viewed */
+#recent .ac-card {
+  background: transparent !important;
+  box-shadow: none !important;
+  border-radius: 0 !important;
+  padding: 0 !important;
+}
+
+/* Asegurar que la imagen ocupe todo y sin borde blanco extra */
+#recent .ac-img {
+  display: block !important;
+  background: transparent !important;
+  box-shadow: none !important;
+  border-radius: 14px !important; /* igual que related */
+  margin: 0 auto !important;
+}
+
+
+/* ===== Best Seller + New Release (compacto) ===== */
+
+/* Base de ambas secciones */
+.bestseller {
+  padding: 16px 20px;
+  text-align: center;
+}
+
+/* Anula alturas/padding de .full-section y compacta */
+.bestseller.full-section {
+  min-height: 0 !important;
+  display: block !important;        /* por si .full-section usa flex */
+  padding: 12px 20px !important;    /* ajusta aquí para más/menos espacio */
+  margin: 0 !important;
+}
+
+/* Cuando un .bestseller va justo después de otro (New Release), pégalo más */
+.bestseller.full-section + .bestseller.full-section {
+  padding-top: 6px !important;      /* ↓ baja para pegar más (ej. 4px) */
+  margin-top: 0 !important;
+}
+
+/* Título y "View more" con márgenes pequeños */
+.bestseller .section-title {
+  font-size: 40px;
+  margin: 0 0 8px;
+}
+.bestseller .view-more {
+  display: inline-block;
+  margin-top: 8px;
+  font-size: 16px;
+  text-decoration: underline;
+  color: #444;
+}
+
+/* Grid */
+.bestseller .collection-grid {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(4, minmax(220px, 1fr));
+  gap: 40px;                        /* separación entre tarjetas */
+  justify-items: center;
+  align-items: start;
+  margin-bottom: 0;
+}
+
+/* Tarjetas sin fondo */
+.bestseller .book-card {
+  width: 100%;
+  background: transparent;
+  border-radius: 0;
+  padding: 0;
+  box-shadow: none;
+  transition: transform .2s ease;
+  text-align: center;
+}
+.bestseller .book-card:hover { transform: translateY(-4px); }
+
+/* Imágenes */
+.bestseller .book-card img {
+  width: 100%;
+  height: 260px;
+  object-fit: cover;
+  border-radius: 12px;
+  display: block;
+}
+
+/* Título y precio */
+.bestseller .book-card h3 {
+  font-size: 16px;
+  margin: 10px 0 6px;
+}
+.bestseller .book-card p {
+  margin: 0;
+  font-weight: 600;
+}
+
+/* Responsive (opcional) */
+@media (max-width: 900px) {
+  .bestseller .collection-grid {
+    grid-template-columns: repeat(2, minmax(160px, 1fr));
+    gap: 24px;
+  }
+}
+@media (max-width: 520px) {
+  .bestseller .collection-grid { grid-template-columns: 1fr; gap: 20px; }
+  .bestseller .section-title { font-size: 32px; }
+  .bestseller .book-card img { height: 220px; }
+}
+
+/* ===== Characters (5 avatares mirando al centro) ===== */
+.characters.full-section {
+  min-height: 0; 
+  display: block; 
+  padding: 24px 20px; 
+  margin: 0;
+  text-align: center;
+}
+
+.characters .section-title { 
+  margin: 0 0 10px; 
+}
+
+.characters .chars {
+  max-width: 1100px; 
+  margin: 0 auto;
+  display: grid; 
+  grid-template-columns: repeat(5, auto);   /* columnas del tamaño de cada personaje */
+  gap: 60px;                                /* espacio entre ellos */
+  justify-content: center;                  /* 👈 centra el grupo completo */
+  align-items: center;
+}
+
+
+.characters .char { 
+  text-decoration: none; 
+  color: inherit; 
+  text-align: center; 
+  transition: transform .3s ease;
+}
+
+.characters .char img {
+  width: 200px;                   /* tamaño uniforme y más grande */
+  height: 200px;                  /* fuerza canvas cuadrado */
+  object-fit: contain;            /* no deforma */
+  background: none;               /* sin fondo */
+  border-radius: 0; 
+  filter: drop-shadow(0px 4px 6px rgba(0,0,0,0.15)); 
+  transition: transform .3s ease, filter .3s ease;
+  display: block;
+}
+
+.characters .char span { 
+  display: block; 
+  margin-top: 10px; 
+  font-size: 16px; 
+  font-weight: 600;
+  letter-spacing: 0.3px;
+  opacity: .9; 
+}
+
+/* Escala especial para Fun in the forest */
+.characters .char.forest img {
+  transform: scale(1.2);   /* lo hace un 20% más grande */
+}
+
+/* Al pasar el puntero, que crezca desde 1.2 */
+.characters .char.forest:hover img {
+  transform: translateY(-8px) scale(1.25);
+}
+
+/* hover */
+.characters .char:hover img {
+  transform: translateY(-8px) scale(1.05);
+  filter: drop-shadow(0px 10px 16px rgba(0,0,0,0.25));
+}
+
+/* subtítulo */
+.characters .characters-sub {
+  margin: 14px 0 0; 
+  font-size: 14px;
+}
+.characters .characters-sub a { 
+  text-decoration: underline; 
+  color: #444; 
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+  .characters .chars { 
+    grid-template-columns: repeat(3, 1fr); 
+    gap: 24px; 
+  }
+  .characters .char img { 
+    width: 160px; 
+    height: 160px;
+  }
+}
+@media (max-width: 520px) {
+  .characters .chars { 
+    grid-template-columns: repeat(2, 1fr); 
+  }
+  .characters .char img { 
+    width: 130px; 
+    height: 130px;
+  }
+}
+
+
+
+/* ===== MARCAS COMPRAR ETSY AMAZON ===== */
+.featured-on {
+  text-align: center;
+  margin: 50px auto;
+  max-width: 1200px;    /* mismo ancho que la sección de libros */
+  
+}
+
+.featured-wrapper {
+  position: relative;
+  background-color: #fff9e3;  /* beige */
+  padding: 40px 0;           /* espacio arriba/abajo */
+  border-radius: 20px;
+  width: 100%;               /* ocupa todo el ancho disponible */
+  overflow: hidden;           /* 👈 esto fuerza a que nada se salga del borde */
+}
+
+.featured-wrapper img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  margin: -250px auto 0 auto; /* 👈 aquí puedes subirla */
+}
+
+/* estilos generales de los logos */
+.logo {
+  position: absolute;
+  transform: translate(-50%, -50%);
+  cursor: pointer;
+}
+
+/* estilos generales de los logos */
+.logo img {
+  height: 90px; /* tamaño por defecto */
+  transition: transform 0.3s ease, filter 0.3s ease;
+  cursor: pointer;
+}
+
+.logo img:hover {
+  transform: scale(1.2);
+  filter: drop-shadow(0 0 10px rgba(0,0,0,0.3));
+}
+
+/* logo Amazon más grande */
+.logo.amazon img {
+  height: 110px; /* aquí lo haces más grande */
+}
+/* posición Amazon */
+.logo.amazon {
+  top: 70%;   /* distancia desde arriba de la imagen base */
+  left: 35%;  /* posición hacia la izquierda */
+}
+
+/* posición Etsy */
+.logo.etsy {
+  top: 70%;   /* distancia desde arriba */
+  left: 65%;  /* posición hacia la derecha */
+}
+
+/* ===== VIDEO PARA GRABAR ===== */
+.video-section {
+  text-align: center;
+  padding: 50px 20px;
+  background: #fff;
+}
+
+.video-title {
+  font-size: 28px;
+  font-weight: bold;
+  margin-bottom: 20px;
+  color: #333;
+}
+
+.video-container {
+  width: 100%;
+  max-width: 1200px;   /* límite de ancho */
+  margin: 20px auto;   /* centrado */
+  border-radius: 15px; /* esquinas redondeadas */
+  overflow: hidden;    /* que no sobresalga */
+}
+
+.video-container video {
+  width: 100%;
+  height: 600px;       /* aquí controlas lo estirado */
+  object-fit: cover;   /* usa "fill" si quieres deformar */
+  display: block;
+}
+.hero {
+  position: relative;
+  text-align: center;
+  background: none;   /* quita fondo */
+}
+
+
+/* --- FAVORITOS HEADER estilo CocoWyo --- */
+.favorites-counter {
+  position: absolute;
+  top: 60px;   /* ajusta según tu header */
+  right: 180px;
+  cursor: pointer;
+  display: inline-block;
+}
+
+.heart-icon {
+  font-size: 26px;
+  color: black;   /* corazón con borde negro */
+  position: relative;
+  transition: transform 0.2s ease, color 0.2s ease;
+}
+
+.favorites-counter .count {
+  position: absolute;
+  top: -8px;
+  right: -10px;
+  background: #e0e0e0;
+  color: #000;
+  font-size: 12px;
+  border-radius: 50%;
+  padding: 2px 6px;
+  line-height: 1;
+  font-weight: 500;
+  border: 1px solid #ccc;
+}
+
+/* --- FAVORITOS EN LIBROS --- */
+.cc-card {
+  position: relative;
+}
+
+/* Corazón dentro de las tarjetas */
+/* Contenedor del corazón con bolita blanca */
+.favorite-btn {
+  position: absolute;
+  bottom: 75px;   /* en vez de top fijo, mejor abajo */
+  right: 5px;
+  width: 25px;   /* tamaño del círculo */
+  height: 25px;
+  background: white;     /* bolita blanca */
+  border-radius: 50%;    /* círculo */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.15); /* sombrita opcional */
+  transition: transform 0.3s ease;
+  font-size: 15px;  /* tamaño del corazón */
+  color: white;     /* blanco por defecto */
+  -webkit-text-stroke: 1px black; /* borde negro */
+}
+
+/* corazón dentro */
+.favorite-btn::before {
+  content: "❤";
+}
+
+/* cuando está activo → corazón rojo */
+.favorite-btn.active {
+  color: red;
+  -webkit-text-stroke: 0px; /* sin borde al activar */
+}
+
+
+.favorite-btn:hover {
+  transform: scale(1.2);
+}
+
+/* --- MODAL FAVORITOS --- */
+.modal {
+  display: none;
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background: rgba(0,0,0,0.6);
+  justify-content: center;
+  align-items: center;
+  z-index: 999;
+}
+
+.modal-content {
+  background: white;
+  padding: 20px;
+  border-radius: 10px;
+  width: 80%;
+  max-width: 500px;
+}
+
+.close-btn {
+  float: right;
+  cursor: pointer;
+  font-size: 18px;
+  color: red;
+}
+[hidden]{display:none !important;}
+
+header, .menu, .menu-container {
+  background-color: #fff7ed !important;
+}
+
+.breadcrumb {
+  font-size: 20px;
+  color: #555;
+  margin: 0 0 25px 160px;
+}
+
+.breadcrumb a {
+  color: #333;
+  text-decoration: none;
+}
+
+.breadcrumb a:hover {
+  text-decoration: underline;
+}
+
+.featured-on,
+.featured-wrapper {
+  background: #fff !important;
+}
+
+
+.cc-card-inner {
+  position: relative; /* clave para que el corazón se posicione respecto al contenedor */
+  display: block;
+  border-radius:16px;
+}
+
+/* Mismo corazón pero en la esquina INFERIOR DERECHA en wishlist */
+.wishlist-page .favorite-btn {
+  position: absolute;
+  right: 5px;
+  bottom: 10px !important;   /* 👈 así ya no lo pisa */
+  width: 22px;
+  height: 22px;
+  font-size: 16px; /* tamaño del corazón */
+  background: white;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+  cursor: pointer;
+}
+.wishlist-page .favorite-btn.active {
+  color: red;
+}
+
+.wishlist-page .favorite-btn:hover{ transform:scale(1.2); }
+
+/* --- FIX --- */
+.wishlist-page .favorite-btn::before {
+  content: "❤";
+}
+
+/* Títulos de tarjetas en My Wishlist = mismos estilos que colección */
+.wishlist-page .cc-title{
+  margin: 12px 0 0 !important;   /* quita el margen negativo */
+  font-size: clamp(18px, 1.9vw, 22px);
+  font-weight: 800;
+  line-height: 1.25;
+  color: #111;
+  text-align: left;               /* como en la colección */
+  
+  /* 2 líneas como máximo, mismo alto visual */
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  min-height: 2.8em;
+}
+
+@media (max-width: 640px){
+  .wishlist-page .cc-title{
+    text-align: center;           /* opcional en móvil */
+    font-size: 18px;
+  }
+}
+.logo-link {
+  text-decoration: none; /* sin subrayado */
+  color: inherit;        /* mantiene color actual */
+  font-size: inherit;    /* respeta tamaño del logo */
+  font-weight: inherit;
+}
+.logo-link:hover {
+  opacity: 0.8; /* pequeño efecto al pasar el ratón */
+}
+
+footer.custom-footer {
+  margin-top: 0 !important;
+}
+
+
+
+main, section, .main-content, .page-content, .collection-list {
+  margin-bottom: 0 !important;
+  padding-bottom: 0 !important;
+}
+
+.footer-wave {
+  position: absolute;
+  top: 0; /* 🔥 que arranque justo arriba */
+  left: 0;
+  width: 100%;
+  line-height: 0;
+  overflow: hidden;
+  z-index: 0;
+}
+
+.footer-wave svg {
+  display: block;
+  width: 100%;
+  height: 120px; /* ajusta según lo que tapes */
+}
+/* ===== FIX: My Wishlist (título debajo de la imagen) ===== */
+.wishlist-page .cc-card{
+  display: flex !important;
+  flex-direction: column !important;
+}
+
+.wishlist-page .cc-card-inner{
+  position: relative;
+  display: block !important;
+  height: auto !important;          /* neutraliza height:100% heredado */
+  box-shadow: none !important;
+  border: 0 !important;
+}
+
+.wishlist-page .cc-card img{
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 16px !important;
+}
+
+/* Título como en la vista de colección */
+.wishlist-page .cc-title{
+  order: 1;
+  margin: 12px 0 0 !important;      /* Quita cualquier margen negativo heredado */
+  padding: 0 !important;
+  text-align: left !important;      /* o 'center' si lo prefieres */
+  font-size: clamp(18px, 1.9vw, 22px);
+  font-weight: 800;
+  line-height: 1.25;
+  color: #111;
+
+  /* 2 líneas, mismo alto visual */
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  min-height: 2.8em;
+}
+
+/* Un poco más de aire entre tarjetas si hace falta */
+.wishlist-page .cc-grid{
+  gap: 24px !important;
+}
+
+/* Wishlist titles igual que collection pero un poco más pequeños */
+.wishlist-page .cc-title {
+  display: block !important;
+  width: 100% !important;
+  text-align: center !important;
+  margin-top: 10px !important;
+
+  font-size: 15px;
+  font-weight: 700;
+  line-height: 1.3;
+  color: #111;
+
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* ====== FIX FINAL: tamaño y posición del corazón en Wishlist ====== */
+.wishlist-page .favorite-btn {
+  width: 25px !important;     /* 🔧 más grande */
+  height: 25px !important;
+  font-size: 16px !important; /* 🔧 tamaño del símbolo */
+  bottom: 12px !important;    /* 🔧 baja un poco */
+  right: 8px !important;      /* 🔧 separa del borde */
+}
+
+.footer-wave path {
+  fill: #fff; /* ahora la ola es blanca */
+}
+
+/* === Portada con overlay fijo === */
+#bookPage .cover-wrap{
+  position: relative;
+  display: inline-block;
+  width: 95%;          /* lo que antes tenía la imagen */
+  margin-left: 12px;   /* lo que antes tenía la imagen */
+  border-radius: 14px; /* opcional: para que el overlay siga la curva */
+}
+
+/* La imagen ocupa el wrapper 1:1 (sin márgenes propios) */
+#bookPage .cover-wrap .book-cover{
+  display: block;
+  width: 100% !important;
+  margin: 0 !important;
+  border-radius: 14px;
+}
+
+/* Corazón como overlay fijo sobre la portada */
+#bookPage .cover-wrap .book-favorite-btn{
+  position: absolute;
+  right: 12px;
+  bottom: 12px;
+  width: 36px;
+  height: 36px;
+  font-size: 20px;
+  background: #fff;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 2px 6px rgba(0,0,0,.2);
+  cursor: pointer;
+  z-index: 2;          /* asegura que vaya encima de la portada */
+}
+
+/* =========================
+   TOP10 — Versión FINAL (5x2 + número gigante detrás)
+   ========================= */
+
+/* Grid 5x2 */
+.top10 .collection-grid{
+  display:grid;
+  grid-template-columns: repeat(5, minmax(220px, 1fr));
+  gap: 40px 48px;                 /* filas x columnas */
+  align-items:start;
+  justify-items:center;
+  counter-reset: rank;            /* 1..10 automáticos */
+}
+
+/* Cada card ancla el número */
+.top10 .book-card{
+  position:relative;
+  text-align:center;
+  counter-increment: rank;
+}
+
+/* Número gigante con contorno gris detrás (como tu imagen 1) */
+.top10 .book-card::before{
+  content: counter(rank);
+  position:absolute;
+  left:-22px;                     /* ajusta horizontal */
+  top:-36px;                      /* ajusta vertical */
+  font-weight:900;
+  font-size: clamp(120px, 16vw, 220px);
+  line-height:.85;
+  color:transparent;              /* sin relleno */
+  -webkit-text-stroke:12px rgba(0,0,0,.10);
+  opacity:.65;
+  z-index:0;
+  pointer-events:none;
+}
+
+/* Si tu HTML aún tiene <span class="rank-num">, lo ocultamos */
+.top10 .rank-num{ display:none !important; }
+
+/* Portada tipo “card” (como tu imagen 2) */
+.top10 .book-card .cover{
+  display:inline-block;
+  border-radius:22px;
+  overflow:hidden;                /* redondeo real a la imagen */
+  background:#fff;                /* evita halos */
+  box-shadow:0 10px 22px rgba(0,0,0,.12);
+  transition:transform .18s ease, box-shadow .18s ease;
+  position:relative;
+  z-index:1;                      /* por delante del número */
+}
+.top10 .book-card .cover:hover{
+  transform:translateY(-4px);
+  box-shadow:0 14px 30px rgba(0,0,0,.18);
+}
+
+/* La portada en sí (cuadrada, redondeada) */
+.top10 .book-card .cover img{
+  display:block;
+  width:100%;
+  max-width:300px;                /* ajusta 280–320px si quieres */
+  aspect-ratio:1/1;
+  object-fit:cover;
+  border-radius:22px;
+}
+
+/* Textos debajo (no tocamos tu contenido) */
+.top10 .book-card h3{ margin-top:14px; font-weight:800; }
+.top10 .book-card p { margin-top: 6px; font-weight:700; }
+
+/* Responsive */
+@media (max-width:1200px){ .top10 .collection-grid{ grid-template-columns: repeat(4,1fr); } }
+@media (max-width:900px) { .top10 .collection-grid{ grid-template-columns: repeat(3,1fr); } }
+@media (max-width:640px){
+  .top10 .collection-grid{ grid-template-columns: repeat(2,1fr); }
+  .top10 .book-card::before{
+    left:-12px; top:-26px; -webkit-text-stroke:8px rgba(0,0,0,.10);
+  }
+}
+
+/* Siempre cuadradas en Top 10 */
+.top10-page .cover{
+  width: clamp(240px, 20vw, 300px); /* tamaño que quieras */
+  aspect-ratio: 1 / 1;              /* cuadrado perfecto */
+  border-radius: 22px;
+  overflow: hidden;
+  background: #fff;
+  box-shadow: 0 10px 22px rgba(0,0,0,.12);
+  position: relative;
+}
+
+.top10-page .cover img{
+  width: 100% !important;
+  height: 100% !important;          /* <- clave */
+  max-width: none !important;       /* neutraliza reglas antiguas */
+  object-fit: cover;                 /* recorta sin deformar */
+  display: block;
+  border-radius: 22px;
+}
+
+/* ========= TOP10 compacto: 5 por fila ========= */
+
+/* 5 columnas fijas en desktop + separaciones más cortas */
+.top10-page .collection-grid{
+  grid-template-columns: repeat(5, 1fr);
+  gap: 28px 32px;                /* fila x columna */
+  justify-items: center;
+}
+
+/* Portada más pequeña (cuadrada) */
+.top10-page .cover{
+  width: clamp(180px, 16vw, 240px);  /* <-- ajusta aquí el tamaño */
+  aspect-ratio: 1 / 1;
+  border-radius: 20px;
+}
+.top10-page .cover img{ border-radius: 20px; }
+
+/* Número gigante proporcional al nuevo tamaño */
+.top10-page .book-card::before{
+  left: -16px;
+  top:  -28px;
+  font-size: clamp(180px, 12vw, 240px);
+  -webkit-text-stroke: 8px rgba(0,0,0,.10);
+}
+
+/* Textos un pelín más compactos */
+.top10-page .book-card h3{ margin-top: 10px; font-size: 1rem; line-height: 1.2; }
+.top10-page .book-card p { margin-top:  4px; font-size: .95rem; }
+
+/* Breakpoints (mantén 4/3/2 columnas en pantallas pequeñas) */
+@media (max-width: 1200px){ .top10-page .collection-grid{ grid-template-columns: repeat(4, 1fr); } }
+@media (max-width: 900px) { .top10-page .collection-grid{ grid-template-columns: repeat(3, 1fr); } }
+@media (max-width: 640px) { .top10-page .collection-grid{ grid-template-columns: repeat(2, 1fr); } }
+
+/* MÁS AIRE ENTRE TARJETAS Y NÚMEROS */
+
+/* 1) Separa más en horizontal (entre columnas) y un poco en vertical */
+.top10-page .collection-grid{
+  column-gap: 72px;    /* <-- ajusta: 60–88px suele quedar bien */
+  row-gap: 34px;
+}
+
+/* 2) Haz la portada un poco más pequeña para que “respire” el número */
+.top10-page .cover{
+  width: clamp(190px, 15vw, 230px);   /* antes 240–300; baja el máximo */
+  aspect-ratio: 1 / 1;
+}
+
+/* 3) Coloca el número fuera de la portada, arriba a la izquierda */
+.top10-page .book-card::before{
+  left: -36px;                         /* mueve horizontalmente el número */
+  top: 40px;                          /* mueve verticalmente el número   */
+  font-size: clamp(110px, 13vw, 200px);/* tamaño del número               */
+  -webkit-text-stroke: 10px rgba(0,0,0,.10);
+  opacity: .6;
+}
+
+/* ======= TOP10 — NÚMERO GRANDE TIPO MAQUETA ======= */
+.top10-page{
+  /* variables para ajustar rápido */
+  --rank-size: clamp(180px, 18vw, 320px);        /* tamaño del número */
+  --rank-stroke: 10px;                           /* grosor del contorno */
+  --rank-fill: rgba(0,0,0,.035);                 /* relleno (muy clarito) */
+  --rank-stroke-color: rgba(0,0,0,.12);          /* contorno gris */
+}
+
+/* cada tarjeta ya tiene position:relative; */
+.top10-page .book-card::before{
+  content: counter(rank);
+  position: absolute;
+
+  /* CENTRADO perfecto detrás de la card */
+  left: 1%;
+  top: 40%;
+  transform: translate(-50%, -52%); /* un pelín más arriba */
+
+  /* tipografía grande con relleno + contorno */
+  font-weight: 800;
+  font-size: var(--rank-size);
+  line-height: 1;
+  color: var(--rank-fill);                /* relleno suave */
+  -webkit-text-stroke: var(--rank-stroke) var(--rank-stroke-color);
+
+  opacity: .8;                            /* si lo ves fuerte, baja a .8 */
+  z-index: 0;
+  pointer-events: none;
+}
+
+/* asegúrate de que la portada queda por delante del número */
+.top10-page .cover{ z-index: 1; }
+
+/* si aún tienes <span class="rank-num"> en el HTML, lo ocultamos */
+.top10-page .rank-num{ display:none !important; }
+
+/* separaciones para que el número respire bien */
+.top10-page .collection-grid{
+  column-gap: 72px;   /* aumenta/reduce si los números chocan */
+  row-gap: 34px;
+}
+
+/* responsivo: ajusta tamaño del número en pantallas pequeñas si quieres */
+@media (max-width: 900px){
+  .top10-page{ --rank-size: clamp(140px, 22vw, 240px); --rank-stroke: 8px; }
+}
+@media (max-width: 640px){
+  .top10-page{ --rank-size: clamp(120px, 26vw, 200px); --rank-stroke: 6px; }
+}
+
+/* ========================= */
+/* Ajustes responsivos portada (slider) */
+/* ========================= */
+
+/* Estilos generales para el slider */
+.slider {
+  width: 100%;
+  max-width: 1400px;   /* ancho máximo en pantallas grandes */
+  margin: 0 auto;
+  position: relative;
+  overflow: hidden;
+}
+
+.slider img {
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: cover;
+  border-radius: 10px;  /* opcional, bordes redondeados */
+}
+
+/* ===== Para móviles ===== */
+@media (max-width: 768px) {
+  .slider {
+    max-height: 80vh;     /* que no ocupe más del 80% de la pantalla */
+  }
+
+  .slider img {
+    width: 100% !important;
+    height: auto !important;
+    object-fit: cover !important;
+  }
+
+  /* Ajuste del buscador y logo para que no tapen la portada */
+  .search-bar {
+    width: 90% !important;
+    max-width: 350px;
+    font-size: 14px;
+  }
+
+  header nav {
+    font-size: 14px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+  }
+}
+
+/* ===== Para pantallas muy pequeñas (móviles < 480px) ===== */
+@media (max-width: 480px) {
+  .slider {
+    max-height: 65vh;  /* que se vea bien pero no se coma toda la pantalla */
+  }
+
+  .slider img {
+    border-radius: 0;  /* sin bordes en móviles, ocupa toda la pantalla */
+  }
+
+  header nav {
+    font-size: 12px;
+    gap: 8px;
+  }
+}
+
+/* Contenedor general */
+.digital-section {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 5px;
+}
+
+
+/* === Breadcrumb solo para Digital === */
+.page-digital .breadcrumb {
+  max-width: 1280px;
+  margin: 5px auto 0px auto; /* 👈 menos espacio arriba y abajo */
+  padding: 0 16px;
+  font-size: 20px;          /* más grande */
+  color: #333;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  position: relative;  /* 👈 le decimos que se pueda mover */
+  top: 12px;           /* 👈 lo bajamos 12px sin mover lo demás */
+  margin-bottom: 50px;      /* 👈 espacio debajo antes de las libretas */
+}
+
+.page-digital .breadcrumb a {
+  color: #000;
+  font-weight: bold;
+  font-size: 20px;
+  text-decoration: none;
+}
+
+.page-digital .breadcrumb a:hover {
+  text-decoration: underline;
+}
+
+.page-digital .breadcrumb .sep {
+  color: #aaa;
+  font-size: 20px;
+}
+
+.page-digital .breadcrumb .current {
+  color: #999;
+  font-weight: normal;
+  font-size: 20px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 60vw;
+}
+
+.page-digital .digital-grid {
+  margin-top: 25px;   /* 👈 baja solo las libretas */
+}
+
+
+/* Título centrado con línea */
+.section-title {
+  text-align: center;
+  font-size: 28px;
+  font-weight: bold;
+  margin: 0px 0 3px 0;  /* menos espacio arriba y menos espacio con la barra */
+}
+.section-divider {
+  width: 1200px;
+  height: 3px;
+  background: #000;
+  margin: 0px auto 10px auto;
+  border-radius: 3px;
+}
+
+/* Grid de productos */
+.digital-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 40px; /* más espacio entre tarjetas */
+}
+
+/* Cada producto */
+.digital-item {
+  background: none;       /* sin fondo */
+  border-radius: 12px;    /* mantiene bordes redondeados de la imagen */
+  text-align: center;
+  box-shadow: none;       /* sin sombra */
+  padding: 0;             /* quitamos padding extra */
+  transition: transform 0.2s ease;
+}
+
+.digital-item:hover {
+  transform: scale(1.03);
+}
+
+/* Imagen portada sin recorte */
+.digital-item img {
+  width: 100%;
+  height: auto; /* NO recorta */
+  border-radius: 12px; /* esquinas redondeadas */
+}
+
+/* Texto debajo */
+.digital-item h3 {
+  margin: 10px 0 5px;
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.digital-item .price {
+  font-size: 15px;
+  font-weight: bold;
+  color: #333;
+  margin: 5px 0;
+}
+
+/* Corazón */
+.wishlist-btn {
+  background: none;
+  border: none;
+  font-size: 22px;
+  cursor: pointer;
+  color: #666;
+}
+.wishlist-btn.active {
+  color: red;
+}
+
+/* Título Digital más arriba */
+.page-digital .section-title {
+  margin: 5px 0 2px 0;       /* 👈 mínimo espacio arriba y abajo */
+}
+
+/* Línea más pegada al título */
+.page-digital .section-divider {
+  width: 1200px;
+  height: 3px;
+  background: #000;
+  margin: 0 auto 5px auto;   /* 👈 menos espacio debajo */
+  border-radius: 3px;
+}
+
+/* ✅ Solo portadas digitales en carruseles */
+a[href^="digital-"] .ac-img {
+  width: 100%;
+  height: auto !important;      /* que no se recorten */
+  object-fit: contain !important; /* mantiene proporción */
+  border-radius: 12px;          /* bordes suaves como quieras */
+  display: block;
+  margin: 0 auto;
+}
+/* ✅ Solo digitales rectangulares */
+#related .ac-track {
+  display: flex;              /* obligamos flex */
+  gap: 20px;                  /* espacio entre ellas */
+}
+
+#related .ac-card[href*="digital-"] {
+  flex: 0 0 calc((100% - 40px) / 3);  /* 3 tarjetas exactas por fila */
+  max-width: calc((100% - 40px) / 3);
+}
+
+#related .ac-card[href*="digital-"] .ac-img {
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+}
+/* 🔥 Fuerza que el título quede pegado al carrusel */
+#ac-related,
+#related {
+  margin-top: 0 !important;
+  padding-top: 0 !important;
+}
+
+#related .ac-like-title {
+  margin: 0 0 10px 0 !important;  /* elimina margen arriba y deja solo 10px abajo */
+  padding: 0 !important;
+}
+
+#related .ac-covers__inner {
+  margin-top: 0 !important;   /* sin separación arriba */
+  padding-top: 0 !important;
+}
+
+/* ===== SOLO en fichas con body.book-detail ===== */
+
+/* Título pegado a las tarjetas */
+.book-detail #related .ac-like-title,
+.book-detail #recent  .ac-like-title{
+  margin-top: 10px !important;
+  margin-bottom: 12px !important;
+  padding: 0 !important;
+}
+
+/* Misma rejilla de 3 columnas y tamaño grande que el “related” */
+.book-detail #recent .ac-track{
+  display: grid !important;
+  grid-template-columns: repeat(3, minmax(360px, 1fr)) !important;
+  gap: 28px !important;
+  align-items: start !important;
+}
+
+/* Oculta flechas del recently (si quieres mantenerlas, quita esto) */
+.book-detail #recent .ac-arrow{ display: none !important; }
+
+/* Tarjetas a ancho completo dentro de la rejilla */
+.book-detail #recent .ac-card{
+  width: 100% !important;
+  max-width: none !important;
+}
+
+/* Imágenes rectangulares sin recorte */
+.book-detail #recent .ac-card .ac-img,
+.book-detail #related .ac-card .ac-img{
+  width: 100% !important;
+  height: auto !important;
+  object-fit: contain !important;
+  aspect-ratio: auto !important; /* importante para que no “aplane” */
+  background: transparent;
+}
+
+/* Texto pegado bajo la imagen */
+.book-detail #recent .ac-card .ac-title,
+.book-detail #related .ac-card .ac-title{
+  margin-top: 6px !important;
+  margin-bottom: 2px !important;
+  line-height: 1.3em !important;
+}
+.book-detail #recent .ac-card .ac-price,
+.book-detail #related .ac-card .ac-price{
+  margin-top: 0 !important;
+}
+
+/* Responsivo (2 col / 1 col) */
+@media (max-width: 1200px){
+  .book-detail #recent .ac-track{
+    grid-template-columns: repeat(2, minmax(300px, 1fr)) !important;
+  }
+}
+@media (max-width: 720px){
+  .book-detail #recent .ac-track{
+    grid-template-columns: 1fr !important;
+  }
+}
+
+/* separa el bloque de thumbnails del bloque de relacionados */
+.book-detail #related{
+  /* mueve toda la sección hacia abajo (la línea baja con ella) */
+  margin-top: 28px !important;
+
+  /* si tu tema dibuja esa línea con un borde, puedes reforzarlo aquí */
+  border-top: 1px solid #e9e9e9;         /* opcional */
+  padding-top: 12px !important;          /* espacio entre la línea y las tarjetas */
+}
+
+/* separa “Recently Viewed” del bloque de relacionados */
+.book-detail #recent{
+  margin-top: 42px !important;           /* bájalo más o menos cambiando el número */
+}
+
+/* si ves que la ficha (book-wrap) queda muy pegada a la línea, 
+   dale un poco de aire por abajo */
+.book-detail .book-wrap{
+  padding-bottom: 10px !important;
+}
+
+/* Mantener la rayita pequeña del título */
+#related .ac-like-title::after { 
+  display: block !important;   /* por si algún estilo la estaba ocultando */
+}
+
+/* Quitar SOLO la línea larga de separación, según de dónde venga */
+
+/* 1) Si la pone el propio bloque #related como borde superior */
+#related { 
+  border-top: none !important; 
+  box-shadow: none !important;   /* por si la línea es un inset shadow */
+}
+
+/* 2) Si la línea la trae el bloque anterior (la ficha) como borde inferior */
+.book-wrap { 
+  border-bottom: none !important; 
+  box-shadow: none !important;
+}
+
+/* 3) Si el tema mete un <hr> entre la ficha y el related */
+.book-wrap + hr { 
+  display: none !important; 
+}
+
+/* SOLO en páginas de ficha (book-detail) */
+.book-detail .book-left .thumbs-wrap{
+  justify-content: center !important;
+}
+
+.book-detail #bookThumbs{
+  display: flex;
+  gap: 12px;
+  justify-content: center !important;
+  flex: 0 0 auto !important; /* no se estira: la flecha queda pegada a la última miniatura */
+  margin: 0 auto;
+  overflow: visible;
+}
+
+.book-detail #bookThumbs img{
+  width: 110px !important;
+  height: 110px !important;
+  object-fit: cover;
+  border-radius: 12px;
+}
+
+.book-detail .book-left .t-nav{
+  display: flex;
+  align-items: center;   /* flecha centrada verticalmente */
+  justify-content: center;
+  font-size: 28px;
+  line-height: 1;
+  padding: 6px 10px;
+}
+
+/* Responsive */
+@media (max-width: 640px){
+  .book-detail #bookThumbs img{
+    width: 84px !important;
+    height: 84px !important;
+  }
+  .book-detail .book-left .t-nav{
+    font-size: 24px;
+  }
+}
+
+/* Subir/bajar las miniaturas (solo en páginas de ficha) */
+body.book-detail .book-left .thumbs-wrap{
+  margin-top: 22px !important;   /* súbelas/bájalas cambiando este número */
+  margin-bottom: 4px !important; /* espacio debajo antes del siguiente bloque */
+}
+
+/* === RECENTLY VIEWED como carrusel, igual que RELATED (solo en ficha) === */
+.book-detail #recent .ac-covers__inner{
+  display: block !important; /* que mantenga la estructura normal */
+}
+
+.book-detail #recent .ac-track{
+  display: flex !important;          /* vuelve a carrusel */
+  gap: 20px !important;              /* mismo espacio que related */
+  overflow: hidden !important;
+  scroll-behavior: smooth !important;
+}
+
+.book-detail #recent .ac-card{
+  flex: 0 0 calc((100% - 40px) / 3) !important; /* 3 tarjetas por vista */
+  max-width: calc((100% - 40px) / 3) !important;
+  box-sizing: border-box !important;
+}
+
+.book-detail #recent .ac-arrow{
+  display: flex !important;          /* vuelve a mostrar flechas */
+  align-items: center;
+  justify-content: center;
+}
+
+/* Evita “tarjeta mini” residual de cuando estuvo en grid */
+.book-detail #recent .ac-card,
+.book-detail #recent .ac-card *{
+  min-width: 0 !important;
+}
+
+/* Imágenes rectangulares sin recorte (igual que en related) */
+.book-detail #recent .ac-card .ac-img{
+  width: 100% !important;
+  height: auto !important;
+  object-fit: contain !important;
+  aspect-ratio: auto !important;
+}
+
+/* Opcional: título pegadito como en related */
+.book-detail #recent .ac-like-title{
+  margin-top: 10px !important;
+  margin-bottom: 12px !important;
+  padding: 0 !important;
+}
+
+
+/* Top9 – View More (3 por página, sin que asome la 4ª) */
+.top9-viewport{
+  overflow-x: auto !important;
+  overflow-y: visible !important;
+  scroll-snap-type: x mandatory !important;
+  scroll-padding-inline: 56px !important; /* igual que el padding lateral del track */
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+}
+.top9-viewport::-webkit-scrollbar{ display:none; }
+
+.top9-track{
+  display: flex !important;
+  gap: var(--gap) !important;
+  padding: 6px 56px !important;      /* aire para flechas */
+  justify-content: flex-start !important;
+  counter-reset: none !important;     /* usamos data-rank, no el contador CSS */
+}
+
+.top9-card{
+  box-sizing: border-box;
+  /* Anti-redondeo: -1px evita que asome la 4ª tarjeta */
+  flex: 0 0 calc((100% - var(--gap) * (var(--cols) - 1) - 1px) / var(--cols)) !important;
+  scroll-snap-align: start !important;
+  counter-increment: none !important;
+}
+
+.top9-card::before{
+  content: attr(data-rank) !important;
+  position: absolute;
+  top: 30px !important;
+  left: -18px !important;
+  font-weight: 900;
+  font-size: clamp(160px, 20vw, 280px) !important;
+  line-height: .85;
+  color: transparent;
+  -webkit-text-stroke: 14px rgba(0,0,0,.10) !important;
+  opacity: .65;
+  z-index: 0;
+  pointer-events: none;
+}
+
+/* Por defecto: ocultar el header móvil en escritorio */
+.ac-header-mobile,
+#ac-search,
+#ac-drawer,
+.ac-drawer-overlay {
+  display: none;
+}
+
+/* Solo afecta a móvil */
+@media (max-width: 992px){
+  /* Ocultar header de escritorio */
+  .header-top,
+  .sticky-menu {
+    display: none !important;
+  }
+
+  .ac-header-mobile{
+    position: sticky; top:0; z-index: 1002;
+    display:flex; align-items:center; justify-content:space-between;
+    padding: 10px 14px; background:#fff; border-bottom:1px solid #eee;
+  }
+  .ac-burger, .ac-close, .ac-search-toggle{
+    font-size: 22px; line-height:1; background:none; border:0; cursor:pointer;
+  }
+  .ac-logo{ font-weight:700; font-size:18px; text-decoration:none; color:#000; }
+  .ac-actions{ display:flex; gap:14px; align-items:center; }
+  .ac-heart{ text-decoration:none; font-size:20px; color:#000; }
+
+  .ac-search{ padding:10px 14px; background:#fff; border-bottom:1px solid #eee; }
+  .ac-search form{ max-width: 720px; margin:0 auto; }
+  .ac-search input{
+    width:100%; padding:12px 16px; border:1px solid #ddd; border-radius:999px; font-size:16px;
+  }
+
+  .ac-drawer{
+    position: fixed; inset:0 auto 0 0; width:80vw; max-width:360px; height:100%;
+    background:#fff; transform: translateX(-100%); transition: transform .3s ease;
+    z-index:1003; box-shadow: 2px 0 16px rgba(0,0,0,.1); overflow-y:auto;
+  }
+  .ac-drawer.open{ transform: translateX(0); }
+  .ac-drawer-header{
+    display:flex; align-items:center; justify-content:space-between;
+    padding:14px 16px; border-bottom:1px solid #eee; font-weight:700;
+  }
+  .ac-menu{ list-style:none; margin:0; padding:10px 0; }
+  .ac-menu li a{
+    display:block; padding:14px 18px; text-decoration:none; color:#111; font-weight:600;
+  }
+  .ac-menu li a:active{ background:#faf7f2; }
+
+  .ac-drawer-overlay{
+    position: fixed; inset:0; background:rgba(0,0,0,.35); z-index:1002;
+    opacity:0; visibility:hidden; transition: opacity .2s ease, visibility .2s ease;
+  }
+  .ac-drawer-overlay.show{ opacity:1; visibility:visible; }
+  body.ac-no-scroll{ overflow:hidden; }
+}
+
+/* === Ajustes Header Móvil === */
+@media (max-width: 992px){
+
+  /* Quitar espacio entre header y carrusel */
+  .ac-header-mobile {
+    margin-bottom: 0 !important;
+  }
+
+  /* Evitar que el buscador plegado deje hueco */
+  #ac-search[hidden] {
+    display: none !important;
+  }
+
+  /* Header móvil: burger izquierda, logo centrado, iconos derecha */
+  .ac-header-mobile {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 14px;
+    background: #fff;
+    border-bottom: 1px solid #eee;
+  }
+
+  .ac-logo {
+    flex: 1;
+    text-align: center;
+    font-size: 18px;
+    font-weight: 700;
+    color: #000;
+    text-decoration: none;
+  }
+
+  .ac-burger {
+    margin-right: auto;
+    font-size: 22px;
+    background: none;
+    border: 0;
+    cursor: pointer;
+  }
+
+  .ac-actions {
+    display: flex;
+    gap: 14px;
+    align-items: center;
+  }
+
+  /* Lupa y corazón visibles y con tamaño correcto */
+  .ac-search-toggle,
+  .ac-heart {
+    font-size: 20px;
+    color: #000;
+    background: none;
+    border: 0;
+    cursor: pointer;
+    text-decoration: none;
+  }
+}
+
+@media (max-width: 992px){
+  .slider-section,
+  .full-section:first-child{
+    margin-top: 0 !important;
+    padding-top: 0 !important;
+  }
+}
+
+/* FIX móvil: header y primer bloque */
+@media (max-width: 992px){
+  /* Header móvil visible y sin hueco */
+  .ac-header-mobile{
+    display:flex !important;
+    align-items:center !important;
+    justify-content:space-between !important;
+    padding:10px 14px !important;
+    background:#fff !important;
+    border-bottom:1px solid #eee !important;
+    margin-bottom:0 !important;
+    position:sticky !important; top:0 !important; z-index:1002 !important;
+  }
+  #ac-search[hidden]{ display:none !important; }
+
+  /* Burger izq, logo centrado, iconos dcha */
+  .ac-logo{ flex:1 !important; text-align:center !important; font-weight:700 !important; }
+  .ac-actions{ display:flex !important; gap:14px !important; align-items:center !important; }
+  .ac-search-toggle, .ac-heart{
+    display:flex !important; font-size:20px !important; color:#000 !important; text-decoration:none !important;
+  }
+
+  /* El hueco viene del primer bloque (slider). Lo anulamos. */
+  .slider-section, .full-section:first-child{
+    margin-top:0 !important;
+    padding-top:0 !important;
+  }
+}
+
+@media (max-width: 992px){
+  .slider-section.full-section,
+  .hero.full-section{
+    min-height: auto !important;
+    display: block !important;
+    justify-content: flex-start !important;
+    margin-top: 0 !important;
+    padding-top: 0 !important;
+    padding-bottom: 0 !important;
+  }
+}
+
+/* ===== Header móvil: iconos “mi lupa” + corazón con contador ===== */
+@media (max-width: 992px){
+  .ac-actions{
+    display:flex;
+    gap: 16px;             /* separa lupa y corazón */
+    align-items:center;
+  }
+
+  /* Botón redondito (opcional). Si no quieres fondo, quita background/border */
+  .ac-icon-btn{
+    width: 36px; height: 36px;
+    display:grid; place-items:center;
+    background:#fff;                  /* quítalo si prefieres transparente */
+    border: 1px solid #eee;           /* quítalo si prefieres sin borde */
+    border-radius: 999px;
+    padding: 0;
+  }
+
+  /* Tu icono de lupa */
+  .ac-icon{
+    width: 20px; height: 20px;        /* tamaño del dibujito */
+    display:block;
+  }
+
+  /* Corazón + badge como en desktop pero más pequeño */
+  .ac-heart{
+    position: relative;
+    text-decoration: none;
+    color: #000;
+  }
+  .ac-heart-icon{ font-size: 20px; line-height: 1; }
+
+  .ac-badge{
+    position: absolute;
+    top: -6px;
+    right: -6px;
+    background: #e0e0e0;
+    color: #000;
+    font-size: 11px;
+    border-radius: 50%;
+    padding: 2px 6px;
+    line-height: 1;
+    border: 1px solid #ccc;
+  }
+}
+
+/* ===== Header móvil: iconos y espaciados finos ===== */
+@media (max-width: 992px){
+  /* más aire entre lupa y corazón */
+  .ac-actions{ gap: 18px !important; align-items: center !important; }
+
+  /* tamaño táctil cómodo (44px) para los botones */
+  .ac-burger, .ac-search-toggle { 
+    width: 44px; height: 44px; 
+    display: grid; place-items: center; 
+    padding: 0; border-radius: 999px;
+  }
+
+  /* tus iconos (lupa y corazón) con el tamaño exacto */
+  .ac-actions .icon{
+    width: 26px; height: 26px; 
+    display: block;
+  }
+
+  /* corazón con burbujita de contador */
+  .ac-heart{ position: relative; display: grid; place-items: center; }
+  .ac-heart .count{
+    position: absolute; 
+    top: -6px; right: -8px;
+    min-width: 18px; height: 18px;
+    padding: 0 5px;
+    border-radius: 999px;
+    background: #e0e0e0; color: #000;
+    font-size: 12px; line-height: 18px; text-align: center;
+    border: 1px solid #ccc;
+  }
+
+  /* buscador desplegable: estilo “píldora” con tu lupa dentro */
+  #ac-search{ padding: 10px 14px; background: #fff; border-bottom: 1px solid #eee; }
+  #ac-search form{ max-width: 720px; margin: 0 auto; }
+  #ac-search input{
+    width: 100%;
+    font-size: 16px;
+    border: 1px solid #ddd; border-radius: 999px;
+    padding: 12px 16px 12px 46px;          /* espacio para la lupa a la izquierda */
+    background-color: #f5f5f5;
+    background-image: url('assets/img/lupa.png'); /* 👈 tu misma lupa del sitio */
+    background-repeat: no-repeat;
+    background-position: 14px center;
+    background-size: 22px;
+  }
+}
+
+/* Quitar los círculos blancos de la lupa y el corazón en móvil */
+@media (max-width: 992px){
+  .ac-burger,
+  .ac-search-toggle,
+  .ac-heart{
+    background: none !important;
+    border: none !important;
+    box-shadow: none !important;
+    border-radius: 0 !important;
+    padding: 0 !important;
+    width: auto !important;
+    height: auto !important;
+  }
+
+  /* por si algún pseudo-elemento dibuja el círculo */
+  .ac-actions .ac-search-toggle::before,
+  .ac-actions .ac-heart::before{
+    content: none !important;
+  }
+
+  /* si en algún sitio usas .ac-icon-btn, también lo dejamos limpio */
+  .ac-icon-btn{
+    background: none !important;
+    border: none !important;
+    box-shadow: none !important;
+    border-radius: 0 !important;
+    padding: 0 !important;
+  }
+
+  /* separa un poco los iconos */
+  .ac-actions{ gap: 14px !important; }
+}
+
+/* === Ajuste fino: corazón y burbuja en móvil === */
+@media (max-width: 992px){
+  /* baja el corazón completo (icono + badge) */
+  .ac-heart{
+    position: relative;
+    transform: translateY(15px) !important;   /* prueba 2–6px */
+  }
+
+  /* recoloca la burbuja/contador */
+  .ac-heart .count{
+    top: 4px !important;   /* antes -6px; ajusta a tu gusto */
+    right: -50px !important;
+  }
+
+  /* si quieres más separación entre lupa y corazón */
+  .ac-actions{ gap: 25px !important; }       /* sube/baja el número */
+}
+
+/* 👉 Fuerza posición del corazón y recoloca la burbuja en móvil */
+@media (max-width: 992px){
+  .ac-header-mobile .ac-actions .ac-heart{
+    position: relative !important;   /* el ancla para el absoluto */
+  }
+  .ac-header-mobile .ac-actions .ac-heart .count,
+  #favoritesCountMobile{              /* por si usas el id */
+    position: absolute !important;
+    top: -8px !important;
+    right: -20px !important;          /* mueve a la derecha (más negativo = más a la dcha) */
+    left: auto !important;            /* evita que algún 'left' previo te lo ate */
+    transform: none !important;       /* por si otro estilo lo desplaza */
+  }
+}
+
+@media (max-width: 992px){
+  .ac-header-mobile .ac-actions .ac-search-toggle .ac-icon{
+    width: 28px !important;   /* súbelo a 30–34 si quieres más grande */
+    height: 28px !important;
+  }
+}
+
+/* Welcome “hero-image” más grande en móvil */
+@media (max-width: 992px){
+  .hero.full-section{            /* opcional: quita aire extra de la sección */
+    padding: 0 0 12px !important;
+  }
+
+  .hero .hero-image{
+    display: block !important;
+    width: 110vw !important;     /* prueba 100vw–120vw según te guste */
+    max-width: none !important;
+    height: auto !important;
+
+    /* centrado aunque el contenedor tenga padding/márgenes */
+    margin-left: 50% !important;
+    transform: translateX(-50%) !important;
+
+    border-radius: 12px;         /* opcional */
+  }
+}
+
+/* === Botón "Explore Collection" sobre la imagen === */
+.hero{ position: relative; }
+
+/* Posición base (móvil por defecto) */
+.hero .button-container{
+  position: absolute;
+  left: 55%;
+  top: 22%;                    /* ← mueve solo este % para afinar */
+  transform: translate(-50%, -50%);
+  z-index: 3;
+}
+
+/* Vertical (portrait) */
+@media (orientation: portrait){
+  .hero .button-container{ top: 26%; }    /* ↑ un poco más alto */
+}
+
+/* Horizontal (landscape) */
+@media (orientation: landscape){
+  .hero .button-container{ top: 70%; }    /* ↓ un poco más bajo */
+}
+
+/* Estilo del botón (opcional) */
+.hero .btn{
+  text-decoration: none;
+  font-size: clamp(14px, 3.8vw, 18px);
+  padding: clamp(8px, 2.4vw, 12px) clamp(14px, 4vw, 20px);
+  border-radius: 12px;
+}
+
+/* Base móvil (ya lo tienes) */
+@media (max-width: 992px){
+  .hero .button-container{
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    top: 22%;
+    z-index: 3;
+  }
+  .hero .btn{
+    display: inline-block;
+    white-space: nowrap;                 /* 👈 no partir en dos líneas */
+    font-size: clamp(14px, 3.8vw, 18px);
+    padding: clamp(8px, 2.4vw, 12px) clamp(14px, 4vw, 20px);
+    border-radius: 12px;
+    text-decoration: none;
+  }
+}
+
+/* Vertical (portrait): hazlo un poco más pequeño para que quepa en una línea */
+@media (max-width: 600px) and (orientation: portrait){
+  .hero .button-container{ top: 46%; }   /* súbelo ligeramente si hace falta */
+  .hero .btn{
+    font-size: clamp(13px, 3.6vw, 16px); /* 👈 un pelín más pequeño */
+    padding: 8px 14px;                   /* 👈 menos padding lateral */
+  }
+}
+
+/* horizontal (landscape) */
+@media (max-width: 992px) and (orientation: landscape){
+  .hero .button-container{
+    top: 70%;
+    left: 52%;                 /* ↑ sube este valor (54–60%) para llevarlo a la derecha */
+    transform: translate(-50%, -50%);  /* déjalo así si usas 'left' */
+  }
+}
+
+
+/* Solo móvil en vertical (portrait) */
+@media (max-width: 992px) and (orientation: portrait){
+  .hero .button-container{
+    top: 65%;                 /* bájalo/súbelo */
+    left: 53%;                /* → empújalo a la derecha (52–58%) */
+    transform: translate(-50%, -49%); /* deja este si usas 'left' */
+    z-index: 3;
+  }
+
+  .hero .btn{
+    white-space: nowrap;               /* que no parta en dos líneas */
+    font-size: clamp(7px, 4.2vw, 10px); /* ← más grande en vertical */
+    padding: 10px 18px;                /* más aire */
+    border-radius: 12px;
+  }
+}
+
+
+/* ===== Characters: versión compacta para móvil (vertical) ===== */
+@media (max-width: 520px) and (orientation: portrait){
+  .characters {
+    padding: 16px 12px;      /* menos aire */
+    text-align: center;
+  }
+
+  .characters .section-title{
+    font-size: 22px;         /* título más pequeño */
+    margin: 0 0 10px;
+  }
+
+  .characters .chars{
+    max-width: 440px;        /* evita que se estire demasiado */
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* 👈 tres por fila */
+    column-gap: 12px;
+    row-gap: 16px;
+    justify-items: center;   /* centra cada item */
+  }
+
+  .characters .char{
+    text-align: center;
+  }
+
+  .characters .char img{
+    width: 90px;             /* 👈 tamaño de los iconos */
+    height: 90px;
+    object-fit: contain;
+    filter: drop-shadow(0 4px 6px rgba(0,0,0,.12));
+  }
+
+  .characters .char span{
+    margin-top: 6px;
+    font-size: 13px;         /* texto compacto */
+    font-weight: 600;
+    letter-spacing: .2px;
+  }
+
+  /* opcional: subtítulo bajo el grid */
+  .characters .characters-sub{
+    margin-top: 10px;
+    font-size: 12px;
+  }
+}
+
+@media (max-width: 520px) and (orientation: portrait){
+  /* 4º = Agent Secret, 5º = Friendly Creatures */
+  .characters .char:nth-child(4),
+  .characters .char:nth-child(5){
+    transform: translateX(56px);   /* prueba 8–16px según veas */
+  }
+}
+
+/* Solo en móvil en horizontal (landscape) */
+@media (max-width: 992px) and (orientation: landscape){
+  .characters .char:nth-child(4),
+  .characters .char:nth-child(5){
+    transform: translateX(54px);   /* + = derecha, – = izquierda */
+  }
+}
+
+
+/* ===== BEST SELLER – móvil 2x2, SIN recortes ni bordes ===== */
+@media (max-width: 992px){
+  /* contenedor sección */
+  section.bestseller{
+    padding: 0 12px;
+    max-width: 820px;
+    margin: 0 auto;
+  }
+
+  /* grid: 2 columnas en móvil */
+  section.bestseller .collection-grid{
+    display: grid !important;
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+    gap: 14px !important;
+    align-items: start;
+  }
+
+  /* tarjeta */
+  section.bestseller .book-card > a{
+    display: block;
+    text-align: center;
+    text-decoration: none;
+    color: inherit;
+  }
+
+  /* IMAGEN: sin recorte y sin “marco” */
+  section.bestseller .book-card img{
+    width: 100% !important;
+    height: auto !important;
+    aspect-ratio: 1 / 1 !important;   /* prueba 5/4 o 1/1 si te gusta más */
+    object-fit: contain !important;    /* 👉 no recorta nada */
+    background: transparent !important;
+    padding: 0 !important;
+    border-radius: 12px;
+    display: block;
+    transform: scale(.96);             /* la “encoge” un poco para que no toque bordes */
+    transform-origin: center center;
+  }
+
+  /* textos compactos */
+  section.bestseller .book-card h3{
+    font-size: 14px;
+    line-height: 1.25;
+    margin: 8px 6px 4px;
+    min-height: 2.6em; /* mantiene 2 líneas */
+    font-weight: 700;
+  }
+  section.bestseller .book-card p{
+    font-size: 13px;
+    margin: 0 6px 2px;
+    color: #444;
+  }
+}
+
+/* Un pelín más de aire en horizontal */
+@media (max-width: 992px) and (orientation: landscape){
+  section.bestseller .collection-grid{ gap: 18px !important; }
+}
+
+/* ===== Video cuadrado a pantalla completa SOLO en móvil vertical ===== */
+@media (max-width: 600px) and (orientation: portrait){
+  .video-section{
+    padding: 0;               /* sin márgenes alrededor del vídeo */
+  }
+
+  /* Haz que el contenedor tenga relación 1:1 y ocupe TODO el ancho */
+  .video-section .video-container{
+    width: 100vw;             /* de borde a borde como tu referencia */
+    aspect-ratio: 1 / 1;      /* cuadrado */
+    margin: 0 auto;           /* centrar por si acaso */
+    overflow: hidden;         /* oculta lo que sobresalga */
+    border-radius: 0;         /* si quieres esquinas rectas como la ref. */
+  }
+
+  /* El vídeo rellena y se recorta suavemente */
+  .video-section .video-container video{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;        /* rellena manteniendo proporción */
+    object-position: center;  /* centrado del recorte */
+    display: block;
+  }
+}
+
+/* Quita cualquier padding lateral de la sección del vídeo en móvil */
+@media (max-width: 600px){
+  .video-section,
+  .video-section.full-section{
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+  }
+
+  /* Full-bleed: ocupa TODO el ancho real de la ventana */
+  .video-section .video-container{
+    width: 100vw;                 /* ancho de la ventana */
+    margin-left: calc(50% - 50vw);/* neutraliza el padding del padre */
+    margin-right: calc(50% - 50vw);
+    aspect-ratio: 1 / 1;          /* cuadrado en vertical */
+    overflow: hidden;
+    border-radius: 0;             /* pon 16px si quieres redondeo */
+    background: #000;
+  }
+
+  .video-section .video-container video{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    display: block;
+  }
+
+  /* evita scroll horizontal por el full-bleed */
+  body{ overflow-x: hidden; }
+}
+
+/* Si solo quieres el cuadrado en portrait, añade además: */
+@media (max-width: 600px) and (orientation: landscape){
+  .video-section .video-container{ aspect-ratio: auto; } /* usa alto natural en horizontal */
+}
+
+
+/* ===== FIND US ON — Solo MÓVIL VERTICAL (portrait) ===== */
+@media (max-width: 600px) and (orientation: portrait){
+
+  /* Asegura que la imagen base SIEMPRE se muestre completa */
+  .featured-on .featured-wrapper > img{
+    display: block !important;
+    width: 100% !important;
+    height: auto !important;
+    margin: 0 auto !important;   /* neutraliza márgenes raros */
+    max-width: 100% !important;
+  }
+
+  /* Por si el wrapper pierde posición relativa en algún sitio */
+  .featured-on .featured-wrapper{
+    position: relative !important;
+    overflow: visible !important;   /* evita recortes de los logos */
+  }
+
+  /* Ajustes SOLO de los botones/logos */
+  .featured-on .logo{
+    position: absolute !important;
+    transform: translate(-50%, -50%) !important;
+    z-index: 2 !important;
+  }
+
+  /* Tamaño de los logos (ajusta este número) */
+  .featured-on .logo img{
+    height: 40px !important;   /* ↓ más pequeño / ↑ más grande */
+    width: auto !important;
+    display: block !important;
+  }
+
+  /* POSICIÓN en vertical (mueve con top/left en %) */
+  /* Ajusta estos dos pares hasta que caigan "en los dedos" */
+  .featured-on .logo.amazon{ top: 162% !important; left: 36% !important; }
+  .featured-on .logo.etsy{   top: 160% !important; left: 68% !important; }
+
+  /* Si el bloque completo te queda aún alto/bajo en la página,
+     sube/baja la sección sin tocar la imagen: */
+  .featured-on{
+    margin-top: 100px !important;   /* + sube → baja todo el bloque */
+    padding-top: 0 !important;
+  }
+}
+
+@media (max-width: 600px) and (orientation: portrait){
+  .featured-on .featured-wrapper > img{
+    margin-top: -164px !important; /* número NEGATIVO = sube la imagen */
+  }
+}
+
+
+
+/* ===== FIND US ON — Solo MÓVIL HORIZONTAL (landscape) ===== */
+@media (max-width: 992px) and (orientation: landscape){
+
+  /* empuja un poco la sección hacia ABAJO si se corta por arriba */
+  .featured-on{
+    margin-top: -40px !important;   /* ↑ sube el número ⇒ más abajo */
+    padding-top: 0 !important;
+  }
+
+  /* asegura que la imagen se renderiza completa y sin márgenes raros */
+  .featured-on .featured-wrapper > img{
+    display: block !important;
+    width: 100% !important;
+    height: auto !important;
+    margin-top: -40px !important;      /* si aún se corta, prueba 10–20px */
+  }
+
+  /* por si acaso: que el wrapper mantenga el posicionamiento de los logos */
+  .featured-on .featured-wrapper{
+    position: relative !important;
+    overflow: visible !important;
+  }
+
+  /* tamaño de logos en horizontal */
+  .featured-on .logo img{
+    height: 80px !important;       /* 36–48px según te guste */
+    width: auto !important;
+  }
+
+  /* POSICIONES en horizontal (mueve con top/left en %) */
+  .featured-on .logo.amazon{ top: 96% !important; left: 38% !important; }
+  .featured-on .logo.etsy{   top: 95% !important; left: 66% !important; }
+}
+
+
+
+/* === Footer: MÓVIL VERTICAL con 3 columnas === */
+@media (max-width: 600px){
+
+  /* 3 columnas en una sola fila */
+  .footer-right{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);  /* <— antes eran 2 */
+    gap: 18px;
+    text-align: left;                       /* pon "center" si te gusta centrado */
+    margin-left: -15px;          /* prueba -6px, -10px, etc. */
+  }
+
+  /* NO dejes que la 3ª columna ocupe toda la fila */
+  .footer-right .footer-column:nth-child(3){
+    grid-column: auto;                      /* <— anula el 1 / -1 anterior */
+    text-align: left;                        /* o "center" si prefieres */
+  }
+
+  /* Tipografías un poco más compactas para que quepa bien */
+  .footer-column h4{
+    font-size: 22px;
+    margin: 8px 0 6px;
+    text-decoration: underline;
+    font-weight: 800;
+  }
+  .footer-column ul{ margin: 0; padding: 0; list-style: none; }
+  .footer-column li{ margin: 8px 0; }
+  .footer-column a{ font-size: 16px; line-height: 1.25; }
+  .footer-column p{ font-size: 15px; line-height: 1.3; }
+}
+
+
+/* Móvil vertical */
+@media (max-width: 600px){
+  .footer-left{
+    /* Izq/der: negativo = hacia la izquierda, positivo = derecha */
+    margin-left: 100px;           /* prueba -6px, -10px, etc. */
+    /* Arriba/abajo */
+    margin-top: 0;               /* sube/baja todo el bloque */
+  }
+}
+
+
+/* ==== FLECHAS ESTILO GALERÍA (ajustadas) ==== */
+.cc-wrapper {
+  position: relative;
+  overflow: hidden;
+  padding: 0 60px; /* deja espacio lateral */
+}
+
+/* Flechas */
+.cc-nav {
+  position: absolute;
+  top: 40%; /* 👈 sube un poco la flecha */
+  transform: translateY(-50%);
+  width: 54px; /* 👈 círculo un poco más grande */
+  height: 54px;
+  background: #fff;
+  border: none;
+  border-radius: 50%;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 10;
+  transition: all 0.3s ease;
+  color: #111; /* color de la flecha */
+  font-size: 34px; /* 👈 tamaño del símbolo mayor */
+  line-height: 0;
+  padding-bottom: 2px; /* ajusta verticalmente el símbolo */
+}
+
+/* Hover bonito */
+.cc-nav:hover:not(:disabled) {
+  transform: translateY(-50%) scale(1.1);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.25);
+}
+
+/* Flechas izquierda/derecha */
+.cc-prev {
+  left: 12px;
+}
+
+.cc-next {
+  right: 12px;
+}
+
+/* Desactivadas */
+.cc-nav:disabled {
+  opacity: 0.4;
+  cursor: default;
+  box-shadow: none;
+}
+
+/* Vista móvil */
+@media (max-width: 768px) {
+  .cc-nav {
+    width: 42px;
+    height: 42px;
+    font-size: 26px;
+  }
+  .cc-prev { left: 5px; }
+  .cc-next { right: 5px; }
+}
+
+
+/* ===== Ajuste del botón Explore Collection ===== */
+
+/* En escritorio (portátil, tablet grande, etc.) */
+@media (min-width: 993px){
+  .hero {
+    position: relative;
+    text-align: center;
+    display: inline-block;
+    width: 100%;
+    padding-bottom: 120px;
+  }
+
+  .hero-image {
+    display: block;
+    margin: 0 auto;
+    width: 80%;
+    height: auto;
+    border-radius: 20px;
+  }
+
+  .hero .button-container {
+    position: absolute !important;
+    left: 52%;
+    transform: translate(-50%, 20px) !important; /* 👈 añade desplazamiento vertical */
+    z-index: 10;
+  }
+
+  .hero .btn {
+    background-color: #ffbabb;
+    color: white;
+    padding: 16px 40px;
+    text-decoration: none;
+    border-radius: 8px;
+    font-size: 22px;
+    font-weight: bold;
+    transition: background 0.3s ease;
+  }
+
+  .hero .btn:hover {
+    background-color: #ffa3a3;
+  }
+}
+
+
+/* ======== Ajustes individuales de cada personaje ======== */
+
+/* 🌿 Capybaras */
+.hero.capys .hero-image {
+  position: absolute;
+  right: -80px;   /* + = más a la derecha | - = más a la izquierda */
+  top: -10px;      /* + = más abajo | - = más arriba */
+  max-width: 520px; /* tamaño de la imagen */
+}
+
+/* 👻 Goblins */
+.hero.goblin .hero-image {
+  position: absolute;
+  right: 30px;
+  top: 10px;
+  max-width: 500px;
+}
+
+/* 🐾 Friendly Creatures */
+.hero.friendly .hero-image {
+  position: absolute;
+  right: -40px;
+  top: 40px;
+  max-width: 510px;
+}
+
+/* 🕵️‍♂️ Agent Secret */
+.hero.agent .hero-image {
+  position: absolute;
+  right: -40px;
+  top: -10px;
+  max-width: 520px;
+}
+
+/* 🐶 Matilda */
+.hero.matilda .hero-image {
+  position: absolute;
+  right: -70px;
+  top: -30px;
+  max-width: 540px;
+}
+
+/* ✅ Ajuste responsivo (para móviles) */
+@media (max-width: 992px) {
+  .hero.capys .hero-image,
+  .hero.goblin .hero-image,
+  .hero.friendly .hero-image,
+  .hero.agent .hero-image,
+  .hero.matilda .hero-image {
+    position: relative;
+    right: auto;
+    top: auto;
+    max-width: 90%;
+    margin: 0 auto;
+  }
+}
+
+
+.video-section {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #fff;
+  overflow: hidden;
+  padding: 40px 0; /* opcional: aire arriba y abajo */
+}
+
+.video-container {
+  width: 100%;
+  max-width: 1200px;
+  overflow: hidden;
+  border-radius: 12px;
+}
+
+.video-container video {
+  width: 100%;
+  height: 620px;       /* ← este valor da una altura equilibrada */
+  object-fit: cover;   /* mantiene el formato tipo banner sin deformar */
+  object-position: center 30%; /* ajusta la parte visible del video */
+  display: block;
+  border-radius: 12px;
+}

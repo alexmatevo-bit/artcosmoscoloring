@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title></title>
+  <link rel="stylesheet" href="assets/css/style.css"/>
+
+  <style>
+    /* Contenedor y grid como tus colecciones */
+    .wishlist-page h1{
+      text-align:center;
+      margin:20px 0 6px;
+    }
+    .cc-grid{
+      list-style:none;
+      padding:0 20px 60px;
+      margin:0 auto;
+      max-width:1200px;
+      display:grid;
+      grid-template-columns:repeat(auto-fill, minmax(220px,1fr));
+      gap:24px;
+    }
+
+    /* Tarjeta muy similar a las de collection */
+    .cc-card{
+      position:relative;
+      border-radius:16px;
+    }
+    .cc-card-inner{
+      display:block;
+      text-decoration:none;
+      color:inherit;
+    }
+    .cc-card img{
+      width:100%;
+      display:block;
+      border-radius:16px;
+    }
+    .cc-title{
+      font-size:18px;
+      font-weight:800;
+      text-align:center;
+      margin:10px 0 0;
+    }
+
+    /* Mismo corazón pero en la esquina INFERIOR DERECHA en wishlist */
+    .wishlist-page .favorite-btn{
+      position:absolute;
+      right:8px;
+      bottom:8px;   /* clave para moverlo abajo */
+      top:auto;     /* anulamos el top por si viene del CSS global */
+      font-size:26px;
+      cursor:pointer;
+      transition:transform .2s ease, color .2s ease;
+    }
+    .wishlist-page .favorite-btn:hover{ transform:scale(1.2); }
+
+    /* Mensaje vacío */
+    .wishlist-empty{
+      max-width:900px;
+      margin:30px auto 60px;
+      text-align:center;
+      color:#777;
+      font-size:18px;
+    }
+  </style>
+</head>
+<body>
+  <!-- Header (se inserta con loadComponents.js) -->
+  <div id="header"></div>
+
+  <main class="wishlist-page">
+    <h1></h1>
+    <nav class="breadcrumb">
+  <a href="index.html">Home</a> › Favorites
+</nav>
+
+    <p id="emptyMsg" class="wishlist-empty" style="display:none;">
+      You haven't saved any books yet ❤️
+    </p>
+    <ul id="wishlistGrid" class="cc-grid"></ul>
+  </main>
+
+  <!-- Footer (se inserta con loadComponents.js) -->
+  <div id="footer"></div>
+
+  <!-- IMPORTANTÍSIMO: estos 2 scripts en TODAS las páginas -->
+  <script src="assets/js/loadComponents.js" defer></script>
+  <script src="assets/js/favorites.js" defer></script>
+
+  <script>
+    // Render de la wishlist con el mismo look de tus tarjetas
+    function updateFavoritesCountFallback(){
+      const countEl = document.getElementById("favoritesCount");
+      if (countEl) {
+        const favs = JSON.parse(localStorage.getItem("favorites")) || [];
+        countEl.textContent = favs.length;
+      }
+    }
+
+    function renderWishlist(){
+      const grid = document.getElementById("wishlistGrid");
+      const empty = document.getElementById("emptyMsg");
+      if (!grid) return;
+
+      const favorites = JSON.parse(localStorage.getItem("favorites")) || [];
+
+      grid.innerHTML = "";
+      if (favorites.length === 0){
+        empty.style.display = "block";
+        return;
+      }
+      empty.style.display = "none";
+
+      favorites.forEach(fav => {
+        const li = document.createElement("li");
+        li.className = "cc-card";
+        li.dataset.id = fav.id;
+        li.dataset.title = fav.title;
+
+        li.innerHTML = `
+  <a href="book.html?slug=${fav.id}" class="cc-card-inner">
+    <img src="${fav.img}" alt="${fav.title}">
+    <span class="favorite-btn active" title="Quitar de la lista"></span>
+  </a>
+  <h3 class="cc-title">${fav.title}</h3>
+`;
+
+        // Al hacer click en el corazón -> quitar de favoritos
+        li.querySelector(".favorite-btn").addEventListener("click", (e) => {
+          e.preventDefault();
+          let favs = JSON.parse(localStorage.getItem("favorites")) || [];
+          favs = favs.filter(item => item.id !== fav.id);
+          localStorage.setItem("favorites", JSON.stringify(favs));
+
+          // Actualiza contador del header (usa tu función si existe)
+          if (typeof updateFavoritesCount === "function") updateFavoritesCount();
+          else updateFavoritesCountFallback();
+
+          // Quita la tarjeta del DOM
+          li.remove();
+          if (favs.length === 0) empty.style.display = "block";
+        });
+
+        grid.appendChild(li);
+      });
+    }
+
+    // Render cuando cargue el DOM y también cuando se cargue el header
+    document.addEventListener("DOMContentLoaded", renderWishlist);
+    document.addEventListener("headerLoaded", renderWishlist);
+  </script>
+
+  <script src="loadComponents.js" defer></script>
+<script src="assets/js/favorites.js" defer></script>
+</body>
+</html>

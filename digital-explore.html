@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>ArtCosmos – Digital Explore The Ocean</title>
+  <link rel="stylesheet" href="assets/css/style.css"/>
+  <style>
+    /* ===== Layout de ficha ===== */
+
+  .book-wrap {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 24px 16px;
+    display: grid;
+    grid-template-columns: 1.5fr 1fr; /* izquierda más grande */
+    gap: 40px;
+  }
+
+  .book-cover {
+    width: 100%;
+    max-width: 950px;
+    border-radius: 14px;
+    display: block;
+    margin: 0 auto;
+  }
+
+
+
+
+
+    .thumbs-wrap{display:flex;align-items:center;gap:10px;margin-top:12px}
+    .thumbs{flex:1;display:flex;gap:10px;overflow:auto;scroll-behavior:smooth}
+    .thumbs img{width:64px;height:64px;object-fit:cover;border-radius:10px;cursor:pointer;opacity:.8}
+    .thumbs img.active{outline:2px solid #222;opacity:1}
+    .t-nav{border:none;background:none;font-size:32px;cursor:pointer}
+    .book-right h1{font-size:32px;margin:0 0 6px}
+    .book-price{font-size:22px;font-weight:700;margin:0 0 12px}
+    .buy-row{display:flex;flex-wrap:wrap;gap:12px;margin:16px 0 22px}
+    .buy-btn{border:0;border-radius:999px;padding:10px 16px;font-weight:700;cursor:pointer;background:#f3b7c6}
+    #bookIntro p{margin-bottom:14px;line-height:1.7;font-size:16px}
+    .features{margin:18px 0 0;padding-left:20px}
+    .features li{margin:8px 0;line-height:1.6;font-size:16px}
+    .book-video{margin:20px 0}
+    .book-video iframe{max-width:100%;border-radius:10px}
+    /* Breadcrumb */
+    .breadcrumb {
+  position: relative;
+  top: 30px;   /* lo bajas */
+  left: 2px;  /* lo mueves a la derecha */
+  font-size: 18px;
+  color:#000;
+}
+
+    .breadcrumb a{color:#000;text-decoration:none;font-weight:600}
+    .breadcrumb a:hover{text-decoration:underline}
+    .breadcrumb .sep{margin:0 6px;color:#999}
+  </style>
+</head>
+<body class="book-detail">
+  <!-- Header -->
+  <div id="header"></div>
+
+  <!-- Breadcrumb -->
+  <nav class="breadcrumb">
+    <a href="index.html">Home</a>
+    <span class="sep">›</span>
+    <a href="digital.html">Digital</a>
+    <span class="sep">›</span>
+    <span class="current">Digital Explore The Ocean</span>
+  </nav>
+
+  <!-- Main content -->
+  <main class="book-wrap">
+
+    <!-- Left: portada y previews -->
+<section class="book-left">
+  <!-- Imagen principal (portada JPG) -->
+  <img id="bookMain" class="book-cover" src="assets/etsy/explore/1.jpg" alt="Digital Explore The Ocean">
+
+  <!-- Carrusel de previews -->
+  <div class="thumbs-wrap">
+    <button class="t-nav t-prev">‹</button>
+    <div class="thumbs" id="bookThumbs">
+      <!-- Miniatura portada -->
+      <img src="assets/etsy/explore/1.jpg" alt="Preview 1" class="active"/>
+
+      <!-- Miniatura para video (usamos imagen jpg como placeholder) -->
+      <img src="assets/etsy/explore/video-thumb.jpg" alt="Video Preview" data-video="assets/etsy/explore/1.mp4"/>
+
+      <!-- Otras imágenes -->
+      <img src="assets/etsy/explore/2.jpg" alt="Preview 2"/>
+      <img src="assets/etsy/explore/3.jpg" alt="Preview 3"/>
+      <img src="assets/etsy/explore/4.jpg" alt="Preview 3"/>
+      <img src="assets/etsy/explore/5.jpg" alt="Preview 3"/>
+    </div>
+    <button class="t-nav t-next">›</button>
+  </div>
+</section>
+
+
+    <!-- Right: detalles -->
+    <section class="book-right">
+      <h1>Digital Explore The Ocean</h1>
+      <p class="book-price">$1.99</p>
+
+      <!-- Botones compra -->
+<div class="buy-row">
+  <a
+    class="buy-btn"
+    href="https://www.etsy.com/es/listing/4331543110"
+    target="_blank"
+    rel="noopener"
+  >
+    BUY NOW ON ETSY
+  </a>
+</div>
+
+
+      
+
+      <!-- Texto -->
+      <div id="bookIntro">
+        <p>Dive into a magical ocean journey with coloring pages full of marine life.</p>
+        <p>Perfect for kids, ocean lovers, and anyone who enjoys the calm of coloring.</p>
+        <p>🐠 Discover hidden treasures, mermaids, and underwater creatures on every page!</p>
+      </div>
+
+      <!-- Características -->
+      <ul class="features">
+        <li>6 print-ready PDF pages.</li>
+        <li>Square format 8.25 × 8.25 in.</li>
+        <li>Detailed, fun ocean illustrations.</li>
+        <li>Ideal for kids and adults.</li>
+      </ul>
+    </section>
+  </main>
+<!-- === YOU MAY ALSO LIKE === -->
+  <section class="ac-covers ac-like" id="related">
+    <h2 class="ac-like-title">YOU MIGHT ALSO ENJOY</h2>
+    <div class="ac-covers__inner">
+      <button class="ac-arrow ac-arrow--left" aria-label="Anterior" title="Anterior">
+        <svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true">
+          <path d="M15.5 4.5 8 12l7.5 7.5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </button>
+
+      <div class="ac-track" id="relatedTrack"></div>
+
+      <button class="ac-arrow ac-arrow--right" aria-label="Siguiente" title="Siguiente">
+        <svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true">
+          <path d="M8.5 4.5 16 12l-7.5 7.5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </button>
+
+      <div class="ac-fade ac-fade--left" aria-hidden="true"></div>
+      <div class="ac-fade ac-fade--right" aria-hidden="true"></div>
+    </div>
+  </section>
+
+  <!-- === RECENTLY VIEWED === -->
+  <section class="ac-covers ac-like" id="recent" hidden>
+    <h2 class="ac-like-title">RECENTLY VIEWED</h2>
+    <div class="ac-covers__inner">
+      <button class="ac-arrow ac-arrow--left" aria-label="Anterior" title="Anterior">
+        <svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true">
+          <path d="M15.5 4.5 8 12l7.5 7.5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </button>
+
+      <div class="ac-track" id="recentTrack"></div>
+
+      <button class="ac-arrow ac-arrow--right" aria-label="Siguiente" title="Siguiente">
+        <svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true">
+          <path d="M8.5 4.5 16 12l-7.5 7.5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </button>
+
+      <div class="ac-fade ac-fade--left" aria-hidden="true"></div>
+      <div class="ac-fade ac-fade--right" aria-hidden="true"></div>
+    </div>
+  </section>
+
+   <!-- Footer -->
+  <div id="footer"></div>
+
+  <!-- ✅ Nuevo script limpio -->
+  <script>
+document.addEventListener("DOMContentLoaded", () => {
+  const thumbs = document.querySelectorAll('#bookThumbs img');
+  let currentIndex = 0;
+  let startX = 0;
+  let isDragging = false;
+
+  function showItem(index) {
+    const currentMain = document.getElementById('bookMain');
+    if (!currentMain) return;
+
+    if (index < 0) index = thumbs.length - 1;
+    if (index >= thumbs.length) index = 0;
+    currentIndex = index;
+
+    thumbs.forEach(t => t.classList.remove('active'));
+    thumbs[index].classList.add('active');
+
+    const thumb = thumbs[index];
+
+    if (thumb.dataset.video) {
+      const video = document.createElement('video');
+      video.src = thumb.dataset.video;
+      video.controls = true;
+      video.autoplay = true;
+      video.loop = true;
+      video.muted = true;
+      video.className = "book-cover";
+      video.id = "bookMain";
+      currentMain.replaceWith(video);
+    } else {
+      const img = document.createElement('img');
+      img.src = thumb.src;
+      img.alt = thumb.alt;
+      img.className = "book-cover";
+      img.id = "bookMain";
+      currentMain.replaceWith(img);
+    }
+  }
+
+  // click en miniaturas
+  thumbs.forEach((thumb, idx) => {
+    thumb.addEventListener('click', () => showItem(idx));
+  });
+
+  // flechas
+  document.querySelector('.t-prev').addEventListener('click', () => showItem(currentIndex - 1));
+  document.querySelector('.t-next').addEventListener('click', () => showItem(currentIndex + 1));
+
+  // teclado
+  document.addEventListener('keydown', e => {
+    if (e.key === "ArrowLeft") showItem(currentIndex - 1);
+    if (e.key === "ArrowRight") showItem(currentIndex + 1);
+  });
+
+  // ===== Drag con ratón y touch =====
+  function handleStart(x) {
+    startX = x;
+    isDragging = true;
+  }
+  function handleMove(x) {
+    if (!isDragging) return;
+    let diff = x - startX;
+    if (diff > 80) { // umbral
+      showItem(currentIndex - 1);
+      isDragging = false;
+    } else if (diff < -80) {
+      showItem(currentIndex + 1);
+      isDragging = false;
+    }
+  }
+  function handleEnd() {
+    isDragging = false;
+  }
+
+  // Mouse
+  const mainEl = document.querySelector('.book-left');
+  mainEl.addEventListener("mousedown", e => handleStart(e.clientX));
+  mainEl.addEventListener("mousemove", e => handleMove(e.clientX));
+  mainEl.addEventListener("mouseup", handleEnd);
+  mainEl.addEventListener("mouseleave", handleEnd);
+
+  // Touch
+  mainEl.addEventListener("touchstart", e => handleStart(e.touches[0].clientX));
+  mainEl.addEventListener("touchmove", e => handleMove(e.touches[0].clientX));
+  mainEl.addEventListener("touchend", handleEnd);
+});
+</script>
+
+
+  <!-- Scripts externos -->
+  <script src="loadComponents.js" defer></script>
+  <script src="assets/js/menu.js" defer></script>
+  <script src="assets/js/buy.js" defer></script>
+  <script src="assets/js/favorites.js" defer></script>
+  <script src="assets/js/books.js"></script>
+
+  
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+  const slug = "digital-explore"; // este libro
+
+  // 👉 usa la función global del books.js
+  renderRelatedCarousel(slug);
+
+  // 👉 recently viewed
+  rvPush(slug);
+  renderRecentlyViewed(slug);
+});
+</script>
+
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+  // === YOU MIGHT ALSO ENJOY (related) ===
+  const related = document.getElementById('related');
+  if (related) {
+    const h2 = related.querySelector('.ac-like-title');
+    const inner = related.querySelector('.ac-covers__inner');
+
+    // 1) Título pegado a las imágenes
+    if (h2) {
+      h2.style.marginTop = '0';
+      h2.style.marginBottom = '8px';
+      h2.style.padding = '0';
+    }
+    if (inner) {
+      // quita cualquier hueco entre h2 e inner
+      inner.style.marginTop = '0';
+      // si algún margen raro persiste, tiramos del contenedor un pelín hacia arriba
+      inner.style.position = 'relative';
+      inner.style.top = '-6px';
+    }
+
+    // 2) Texto (título y precio) pegados a la imagen
+    related.querySelectorAll('.ac-card .ac-title').forEach(el => {
+      el.style.marginTop = '6px';
+      el.style.marginBottom = '2px';
+      el.style.lineHeight = '1.3';
+    });
+    related.querySelectorAll('.ac-card .ac-price').forEach(el => {
+      el.style.marginTop = '0';
+    });
+  }
+
+  // === RECENTLY VIEWED (si lo usas) ===
+  const recent = document.getElementById('recent');
+  if (recent) {
+    const h2r = recent.querySelector('.ac-like-title');
+    const innerr = recent.querySelector('.ac-covers__inner');
+    if (h2r) {
+      h2r.style.marginTop = '0';
+      h2r.style.marginBottom = '8px';
+      h2r.style.padding = '0';
+    }
+    if (innerr) {
+      innerr.style.marginTop = '0';
+      innerr.style.position = 'relative';
+      innerr.style.top = '-6px';
+    }
+    recent.querySelectorAll('.ac-card .ac-title').forEach(el => {
+      el.style.marginTop = '6px';
+      el.style.marginBottom = '2px';
+      el.style.lineHeight = '1.3';
+    });
+    recent.querySelectorAll('.ac-card .ac-price').forEach(el => {
+      el.style.marginTop = '0';
+    });
+  }
+});
+</script>
+<style>
+  /* ====== 1) Quita el aire del bloque entero del carrusel ====== */
+  #related,
+  #recent{
+    margin-top: 0 !important;
+    padding-top: 0 !important;
+  }
+  #related .ac-like-title,
+  #recent  .ac-like-title{
+    margin: 4px 0 10px 0 !important;
+    padding: 0 !important;
+  }
+  #related .ac-covers__inner,
+  #recent  .ac-covers__inner,
+  #related .ac-track,
+  #recent  .ac-track{
+    margin-top: 0 !important;
+    padding-top: 0 !important;
+  }
+
+  /* ====== 2) Tarjetas: reset total y layout con gap pequeño ====== */
+  /* — SOLO en el carrusel — */
+  #related a.ac-card,
+  #recent  a.ac-card{
+    display: grid !important;
+    grid-auto-rows: auto;
+    row-gap: 8px !important;          /* ← separación entre imagen, título, precio */
+    padding: 0 !important;
+    border: 0 !important;
+    background: none !important;
+  }
+  /* quita cualquier margen “raro” de los hijos */
+  #related a.ac-card > * ,
+  #recent  a.ac-card > * {
+    margin: 0 !important;
+  }
+
+  /* ====== 3) Miniatura: sin margen y en bloque ====== */
+ /* — No recortes en las tarjetas del carrusel — */
+#related .ac-card .ac-img,
+#recent  .ac-card .ac-img{
+  height: auto !important;          /* quita alturas fijas globales */
+  width: 100% !important;
+  display: block !important;
+}
+
+/* — Solo para digitales del carrusel: mostrar la imagen completa — */
+#related a.ac-card[href^="digital-"] .ac-img{
+  aspect-ratio: auto !important;    /* NO forzar caja con ratio fijo */
+  object-fit: contain !important;   /* mostrarla entera, sin recorte */
+  background: transparent;          /* o #fff si prefieres sin “barras” */
+}
+
+
+  /* ====== 5) Título y precio pegados ====== */
+  #related .ac-card .ac-title,
+  #recent  .ac-card .ac-title{
+    margin: 0 !important;
+    line-height: 1.25 !important;
+  }
+  #related .ac-card .ac-price,
+  #recent  .ac-card .ac-price{
+    margin: 0 !important;
+  }
+</style>
+
+</body>
+</html>
