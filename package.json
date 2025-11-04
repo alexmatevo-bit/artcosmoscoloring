@@ -1,0 +1,14 @@
+{
+  "name": "artcosmoscoloring",
+  "version": "1.0.0",
+  "description": "Art Cosmos Coloring website",
+  "scripts": {
+    "dev": "npx serve .",
+    "start": "npx serve .",
+    "build": "echo 'Static build complete'"
+  },
+  "dependencies": {
+    "@stackbit/types": "^0.6.0",
+    "@stackbit/cms-contentful": "^0.1.4"
+  }
+}
