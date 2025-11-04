@@ -8,7 +8,7 @@
     "build": "echo 'Static build complete'"
   },
   "dependencies": {
-    "@stackbit/types": "^0.6.0",
-    "@stackbit/cms-contentful": "^0.1.4"
+  "@stackbit/types": "^0.6.0",
+  "@stackbit/plugin-contentful": "^0.3.2"
   }
 }
