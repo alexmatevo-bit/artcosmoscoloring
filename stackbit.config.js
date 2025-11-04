@@ -4,7 +4,7 @@ export default defineStackbitConfig({
     stackbitVersion: '~0.6.0',
     contentSources: [
         {
-            module: '@stackbit/cms-contentful',
+            module: '@stackbit/plugin-contentful',
             name: 'contentful',
             spaceId: process.env.CONTENTFUL_SPACE_ID,
             accessToken: process.env.CONTENTFUL_DELIVERY_TOKEN,
